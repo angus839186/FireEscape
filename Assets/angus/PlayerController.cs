@@ -10,7 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CharacterController character;
 
+    public PlayerLook playerLook;
+
     public Vector3 move;
+
+    public Vector2 rotate;
 
     public float gravity = -9.81f;
     private float verticalVelocity = 0f;
@@ -23,6 +27,7 @@ public class PlayerController : MonoBehaviour
         inputManager = FindAnyObjectByType<GameInputManager>();
 
         inputManager.moveInput += HandleMoveInput;
+        inputManager.rotateInput += HandleRotateInput;
     }
 
     void OnDisable()
@@ -30,6 +35,7 @@ public class PlayerController : MonoBehaviour
         if (inputManager != null)
         {
             inputManager.moveInput -= HandleMoveInput;
+            inputManager.rotateInput -= HandleRotateInput;
         }
     }
 
@@ -44,6 +50,11 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    void LateUpdate()
+    {
+        playerLook.playerRotate(rotate);
+    }
+
     public void HandleMoveInput(Vector2 _moveInput)
     {
         move = new Vector3(_moveInput.x, 0, _moveInput.y);
@@ -54,6 +65,10 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = move * speed + Vector3.up * verticalVelocity;
 
         character.Move(velocity * Time.deltaTime);
+    }
+    public void HandleRotateInput(Vector2 rotateInput)
+    {
+        rotate = rotateInput;
     }
     
     private void ApplyGravity()
