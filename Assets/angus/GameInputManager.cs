@@ -25,6 +25,7 @@ public class GameInputManager : MonoBehaviour
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
         Vector2 moveVector = ctx.ReadValue<Vector2>();
+        Debug.Log("aaa");
         moveInput?.Invoke(moveVector);
     }
 
