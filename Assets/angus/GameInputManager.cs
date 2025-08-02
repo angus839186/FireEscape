@@ -10,6 +10,8 @@ public class GameInputManager : MonoBehaviour
     public event Action<Vector2> moveInput;
     public event Action<Vector2> rotateInput;
 
+    public event Action crouchInput;
+
     private void OnEnable()
     {
         gameInput = new GameInput();
@@ -18,8 +20,24 @@ public class GameInputManager : MonoBehaviour
         gameInput.Player.Movement.performed += OnMovePerformed;
         gameInput.Player.Movement.canceled += OnMoveCanceled;
 
-        gameInput.Player.Look.performed += ctx => rotateInput?.Invoke(ctx.ReadValue<Vector2>());
-        gameInput.Player.Look.canceled += ctx => rotateInput?.Invoke(Vector2.zero);
+        gameInput.Player.Look.performed += OnLookPerformed;
+        gameInput.Player.Look.canceled += OnLookCanceled;
+        gameInput.Player.Crouch.performed += ctx => crouchInput?.Invoke();
+        gameInput.Player.Crouch.canceled += ctx => crouchInput?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        gameInput.Player.Movement.performed -= OnMovePerformed;
+        gameInput.Player.Movement.canceled -= OnMoveCanceled;
+
+        gameInput.Player.Look.performed -= OnLookPerformed;
+        gameInput.Player.Look.canceled -= OnLookCanceled;
+
+        gameInput.Player.Crouch.performed -= ctx => crouchInput?.Invoke();
+        gameInput.Player.Crouch.canceled -= ctx => crouchInput?.Invoke();
+
+        gameInput.Player.Disable();
     }
 
     private void OnMovePerformed(InputAction.CallbackContext ctx)

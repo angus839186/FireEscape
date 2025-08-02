@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
     private float verticalVelocity = 0f;
 
+    public float crouchHeight = 1f;
+    public float standingHeight = 2f;
+    public Vector3 standingCenter = new Vector3(0, 1f, 0);
+    public Vector3 crouchCenter = new Vector3(0, 0.5f, 0);
+    public bool isCrouching = false;
+
 
     public float speed = 5f;
 
@@ -64,13 +70,13 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 velocity = move * speed + Vector3.up * verticalVelocity;
 
-        character.Move(velocity * Time.deltaTime);
+        character.Move(transform.TransformDirection(velocity) * Time.deltaTime);
     }
     public void HandleRotateInput(Vector2 rotateInput)
     {
         rotate = rotateInput;
     }
-    
+
     private void ApplyGravity()
     {
         if (character.isGrounded && verticalVelocity < 0)
@@ -80,6 +86,22 @@ public class PlayerController : MonoBehaviour
         verticalVelocity += gravity * Time.deltaTime;
     }
 
+    public void HandleCrouchInput(bool isPressed)
+    {
+        isCrouching = isPressed;
 
-    
+        if (isCrouching)
+        {
+            character.height = crouchHeight;
+            character.center = crouchCenter;
+        }
+        else
+        {
+            character.height = standingHeight;
+            character.center = standingCenter;
+        }
+    }
+
+
+
 }
