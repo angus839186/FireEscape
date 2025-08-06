@@ -6,11 +6,27 @@ using UnityEngine.InputSystem;
 
 public class GameInputManager : MonoBehaviour
 {
+    public static GameInputManager Instance;
     private GameInput gameInput;
     public event Action<Vector2> moveInput;
     public event Action<Vector2> rotateInput;
 
     public event Action crouchInput;
+
+    public event Action interactInput;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void OnEnable()
     {
@@ -22,8 +38,11 @@ public class GameInputManager : MonoBehaviour
 
         gameInput.Player.Look.performed += OnLookPerformed;
         gameInput.Player.Look.canceled += OnLookCanceled;
+        
         gameInput.Player.Crouch.performed += ctx => crouchInput?.Invoke();
         gameInput.Player.Crouch.canceled += ctx => crouchInput?.Invoke();
+
+        gameInput.Player.Interact.performed += ctx => interactInput?.Invoke();
     }
 
     private void OnDisable()
@@ -37,13 +56,14 @@ public class GameInputManager : MonoBehaviour
         gameInput.Player.Crouch.performed -= ctx => crouchInput?.Invoke();
         gameInput.Player.Crouch.canceled -= ctx => crouchInput?.Invoke();
 
+        gameInput.Player.Interact.performed -= ctx => interactInput?.Invoke();
+
         gameInput.Player.Disable();
     }
 
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
         Vector2 moveVector = ctx.ReadValue<Vector2>();
-        Debug.Log("aaa");
         moveInput?.Invoke(moveVector);
     }
 
