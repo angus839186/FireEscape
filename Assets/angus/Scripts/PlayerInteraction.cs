@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField] private float interactionDistance = 3f;
+    [SerializeField] private float interactionDistance;
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private Camera playerCamera;
 
@@ -25,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer))
         {
+            Debug.Log(hit.collider.name);
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
             if (interactable != null)

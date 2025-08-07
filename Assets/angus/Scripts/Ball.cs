@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour, IInteractable
 {
+    public Hint hint;
     public void Interact()
     {
-        Debug.Log("這裡有顆球");
+        HintManager.Instance.ShowHint(hint.hintText);
     }
 }

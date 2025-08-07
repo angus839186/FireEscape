@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ba0be460ed7d4347b398d5d706705ce, type: 3}
-  m_Name: Hint1
+  m_Name: Door
   m_EditorClassIdentifier: 
-  hintText: 
+  hintText: "\u9019\u88E1\u6709\u4E00\u6247\u9580"

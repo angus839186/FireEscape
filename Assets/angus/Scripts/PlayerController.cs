@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
     public Vector2 rotate;
 
     public float gravity = -9.81f;
-    private float verticalVelocity = 0f;
+
+
+    public float verticalVelocity = 0f;
 
     public float crouchHeight = 1f;
     public float standingHeight = 2f;
