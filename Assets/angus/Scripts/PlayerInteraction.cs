@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (interactable != null)
             {
-                interactable.Interact();
+                interactable.Interact(this);
             }
         }
     }
