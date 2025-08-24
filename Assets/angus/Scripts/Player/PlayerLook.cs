@@ -11,6 +11,12 @@ public class PlayerLook : MonoBehaviour
     public float xSensitivity;
     public float ySensitivity;
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
 
     public void playerRotate(Vector2 rotateInput)
     {

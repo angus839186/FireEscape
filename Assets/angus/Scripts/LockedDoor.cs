@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour, IInteractable
+public class LockedDoor : MonoBehaviour, IInteractable
 {
+    public string keyID;
     public Hint hint;
 
     public void Interact(PlayerInteraction player)
     {
-        HintManager.Instance.ShowHint(hint.hintText);
+        
     }
 }

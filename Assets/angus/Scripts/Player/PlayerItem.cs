@@ -15,7 +15,7 @@ public class PlayerItem : MonoBehaviour
     public void GetItem(UsableItem item)
     {
         currentItem = item;
-        item.transform.SetParent(transform);
+        item.transform.SetParent(holdPoint);
         item.transform.localPosition = Vector3.zero;
     }
     public void DropItem()
