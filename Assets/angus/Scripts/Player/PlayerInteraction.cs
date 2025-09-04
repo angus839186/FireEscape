@@ -25,7 +25,6 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer))
         {
-            Debug.Log(hit.collider.name);
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
             if (interactable != null)
