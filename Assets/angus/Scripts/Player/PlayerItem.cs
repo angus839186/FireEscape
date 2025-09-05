@@ -55,4 +55,9 @@ public class PlayerItem : MonoBehaviour
             currentItem = null;
         }
     }
+    public void RemoveItem()
+    {
+        Destroy(currentItem.gameObject);
+        currentItem = null;
+    }
 }

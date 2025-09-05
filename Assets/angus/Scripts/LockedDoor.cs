@@ -9,17 +9,30 @@ public class LockedDoor : InteractableItem
 
     public Animator anime;
 
+    public Hint hint;
+
     public bool CanInteract(PlayerInteraction player)
     {
         var item = player.GetComponent<PlayerItem>().currentItem as Key;
         return item != null && item.keyID == requiredKeyID;
     }
+
+    public void Unlock(PlayerInteraction player)
+    {
+        unlocked = true;
+        player.GetComponent<PlayerItem>().RemoveItem();
+        Debug.Log("門已解鎖！");
+    }
     public override void Interact(PlayerInteraction player)
     {
         if (CanInteract(player))
         {
-            unlocked = true;
-            Debug.Log("門已解鎖！");
+            Unlock(player);
+            return;
+        }
+        else
+        {
+            HintManager.Instance.ShowHint(hint);
         }
 
         if (unlocked)

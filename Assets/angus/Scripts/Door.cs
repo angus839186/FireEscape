@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Door : InteractableItem
 {
+    public Animator anime;
     public override void Interact(PlayerInteraction player)
     {
-        throw new System.NotImplementedException();
+        anime.SetTrigger("DoorTrigger");
     }
 }

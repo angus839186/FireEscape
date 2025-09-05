@@ -22,14 +22,15 @@ public class HintManager : MonoBehaviour
     }
 
 
-    public void ShowHint(string text)
+    public void ShowHint(Hint hint)
+    {
+        StartCoroutine(HintAnime(hint));
+    }
+    public IEnumerator HintAnime(Hint hint)
     {
         HintUI.SetActive(true);
-        hintText.text = text;
-    }
-
-    public void CloseHint()
-    {
+        hintText.text = hint.hintText;
+        yield return new WaitForSeconds(hint.HintDuration);
         HintUI.SetActive(false);
         hintText.text = string.Empty;
     }

@@ -1682,6 +1682,7 @@ MonoBehaviour:
   requiredKeyID: 001
   unlocked: 0
   anime: {fileID: 1293606491}
+  hint: {fileID: 11400000, guid: 4c0b1c4e2d2fa4d4ab1f0f92b771becc, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -8,6 +8,6 @@ public class Ball : MonoBehaviour, IInteractable
 
     public void Interact(PlayerInteraction player)
     {
-        HintManager.Instance.ShowHint(hint.hintText);
+        HintManager.Instance.ShowHint(hint);
     }
 }

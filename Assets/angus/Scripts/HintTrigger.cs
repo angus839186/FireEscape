@@ -11,7 +11,7 @@ public class HintTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            HintManager.Instance.ShowHint(hint.hintText);
+            HintManager.Instance.ShowHint(hint);
         }
     }
 }

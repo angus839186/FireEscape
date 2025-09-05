@@ -6,4 +6,5 @@ using UnityEngine;
 public class Hint : ScriptableObject
 {
     public string hintText;
+    public float HintDuration;
 }
