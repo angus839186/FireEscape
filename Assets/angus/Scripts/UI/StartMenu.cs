@@ -5,17 +5,17 @@ using UnityEngine;
 public class StartMenu : MonoBehaviour
 {
     public GameObject LevelSelectMenu;
-    void OpenLevelSelectUI()
+    public void OpenLevelSelectUI()
     {
         LevelSelectMenu.SetActive(true);
     }
 
-    void Option()
+    public void Option()
     {
 
     }
 
-    void EndGame()
+    public void EndGame()
     {
         Application.Quit();
     }

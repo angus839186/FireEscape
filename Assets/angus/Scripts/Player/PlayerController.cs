@@ -30,13 +30,13 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5f;
 
-    void OnEnable()
-    {
-        inputManager = FindAnyObjectByType<GameInputManager>();
+    // void OnEnable()
+    // {
+    //     inputManager = FindAnyObjectByType<GameInputManager>();
 
-        inputManager.moveInput += HandleMoveInput;
-        inputManager.rotateInput += HandleRotateInput;
-    }
+    //     inputManager.moveInput += HandleMoveInput;
+    //     inputManager.rotateInput += HandleRotateInput;
+    // }
 
     void OnDisable()
     {
@@ -49,7 +49,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        inputManager = FindAnyObjectByType<GameInputManager>();
 
+        inputManager.moveInput += HandleMoveInput;
+        inputManager.rotateInput += HandleRotateInput;
     }
 
     void Update()

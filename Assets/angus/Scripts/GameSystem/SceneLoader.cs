@@ -1,18 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class SceneLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private string menuScene;
+    [SerializeField] private GameObject playerPrefab;
+
+    private void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject); // Loader 常駐
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadLevel(LevelData level)
     {
-        
+        StartCoroutine(LoadLevelRoutine(level));
+    }
+
+    private IEnumerator LoadLevelRoutine(LevelData level)
+    {
+        // 1. 載入新場景
+        var op = SceneManager.LoadSceneAsync(level.sceneName, LoadSceneMode.Additive);
+        while (!op.isDone) yield return null;
+
+        // 2. 設定新的 Active Scene
+        var newScene = SceneManager.GetSceneByName(level.sceneName);
+        SceneManager.SetActiveScene(newScene);
+
+        // 3. 卸載舊場景
+        var menu = SceneManager.GetSceneByName(menuScene);
+        if (menu.isLoaded)
+        {
+            var unloadOp = SceneManager.UnloadSceneAsync(menu);
+            while (!unloadOp.isDone) yield return null;
+        }
+
+        SpawnPlayerAtSpawnPoint(level);
+    }
+
+    private void SpawnPlayerAtSpawnPoint(LevelData level)
+    {
+        var spawner = FindFirstObjectByType<PlayerSpawner>();
+        Vector3 pos = level.defaultSpawnPos;
+        Quaternion rot = Quaternion.Euler(level.defaultSpawnEuler);
+
+        if (spawner != null)
+        {
+            pos = spawner.SpawnPosition;
+            rot = Quaternion.Euler(spawner.SpawnEuler);
+        }
+
+        var player = Instantiate(playerPrefab, pos, rot);
     }
 }
