@@ -8,6 +8,9 @@ public class PlayerHealth : MonoBehaviour
     private int maxHealth;
     public int currentHealth;
 
+    public bool hurting;
+    public float delayTime;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -20,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        StartCoroutine(TakeDamageRoutine(damage));
         UpdateHealth();
         if (currentHealth <= 0)
         {
@@ -30,4 +34,23 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player has died");
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "trap")
+        {
+            TakeDamage(1);
+        }
+    }
+
+    IEnumerator TakeDamageRoutine(int damage)
+    {
+        currentHealth -= damage;
+        hurting = true;
+
+        yield return new WaitForSeconds(delayTime);
+        hurting = false;
+        
+    }
+    
+
 }
