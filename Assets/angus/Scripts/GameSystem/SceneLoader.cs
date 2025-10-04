@@ -22,6 +22,10 @@ public class SceneLoader : MonoBehaviour
     {
         // 1. 載入新場景
         var op = SceneManager.LoadSceneAsync(level.sceneName, LoadSceneMode.Additive);
+        if (!SceneManager.GetSceneByName("UI").isLoaded)
+        {
+            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        }
         while (!op.isDone) yield return null;
 
         // 2. 設定新的 Active Scene

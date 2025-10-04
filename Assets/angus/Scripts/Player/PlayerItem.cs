@@ -60,4 +60,10 @@ public class PlayerItem : MonoBehaviour
         Destroy(currentItem.gameObject);
         currentItem = null;
     }
+
+    public bool CheckItem(out UsableItem item)
+    {
+        item = currentItem;
+        return item != null;
+    }
 }
