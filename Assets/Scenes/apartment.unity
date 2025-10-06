@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 229816926}
   - component: {fileID: 229816925}
   - component: {fileID: 229816924}
-  - component: {fileID: 229816928}
+  - component: {fileID: 229816927}
   m_Layer: 3
-  m_Name: Door
+  m_Name: DoorMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229816921}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &229816928
+--- !u!114 &229816927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 229816921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b374badc8e1584b95eb3c12b9e0d79, type: 3}
+  m_Script: {fileID: 11500000, guid: ec427f9c56e90fb4ca1a4331a30937ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKeyID: 001
