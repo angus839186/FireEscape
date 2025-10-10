@@ -1,4 +1,4 @@
-public interface Iusable
+public interface IUsable
 {
-    void Use();
+    
 }

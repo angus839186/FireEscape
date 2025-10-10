@@ -1,12 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
-public abstract class UsableItem : MonoBehaviour, Iusable, IInteractable
+public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
 {
     public ItemData itemData;
 
-    public abstract void Interact(PlayerInteraction player);
-
-    public abstract void Use();
+    public virtual void Interact(PlayerInteraction player)
+    {
+        player.GetComponent<PlayerItem>().AddItem(this);
+        this.gameObject.SetActive(false);
+    }
 }

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : UsableItem
+public class FireExtinguisher : UsableItem
 {
-    public string keyID;
 
     public override void Interact(PlayerInteraction player)
     {

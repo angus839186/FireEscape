@@ -20,19 +20,14 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator LoadLevelRoutine(LevelData level)
     {
-        // 1. 載入新場景
         var op = SceneManager.LoadSceneAsync(level.sceneName, LoadSceneMode.Additive);
-        if (!SceneManager.GetSceneByName("UI").isLoaded)
-        {
-            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-        }
         while (!op.isDone) yield return null;
 
-        // 2. 設定新的 Active Scene
+
         var newScene = SceneManager.GetSceneByName(level.sceneName);
         SceneManager.SetActiveScene(newScene);
 
-        // 3. 卸載舊場景
+        
         var menu = SceneManager.GetSceneByName(menuScene);
         if (menu.isLoaded)
         {
@@ -41,6 +36,8 @@ public class SceneLoader : MonoBehaviour
         }
 
         SpawnPlayerAtSpawnPoint(level);
+
+        LoadUI();
     }
 
     private void SpawnPlayerAtSpawnPoint(LevelData level)
@@ -56,5 +53,13 @@ public class SceneLoader : MonoBehaviour
         }
 
         var player = Instantiate(playerPrefab, pos, rot);
+    }
+
+    private void LoadUI()
+    {
+        if (!SceneManager.GetSceneByName("UI").isLoaded)
+        {
+            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        }
     }
 }
