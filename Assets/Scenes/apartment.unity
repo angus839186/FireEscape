@@ -789,8 +789,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1519583108}
   - component: {fileID: 1519583107}
-  - component: {fileID: 1519583110}
   - component: {fileID: 1519583109}
+  - component: {fileID: 1519583110}
   m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
@@ -865,10 +865,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1519583106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b374badc8e1584b95eb3c12b9e0d79, type: 3}
+  m_Script: {fileID: 11500000, guid: ec427f9c56e90fb4ca1a4331a30937ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredKeyID: 
+  requiredKeyID: 001
   anime: {fileID: 1519583107}
   hint: {fileID: 11400000, guid: 4c0b1c4e2d2fa4d4ab1f0f92b771becc, type: 2}
 --- !u!1 &1583310693
