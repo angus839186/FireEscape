@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec427f9c56e90fb4ca1a4331a30937ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredKeyID: 001
+  requiredKeyID: 
   anime: {fileID: 1519583107}
   hint: {fileID: 11400000, guid: 4c0b1c4e2d2fa4d4ab1f0f92b771becc, type: 2}
 --- !u!1 &1583310693
