@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerItem : MonoBehaviour
 {
@@ -11,16 +12,6 @@ public class PlayerItem : MonoBehaviour
     public IReadOnlyList<UsableItem> Items => items;
 
     public event Action OnInventoryChanged;
-
-    // void Start()
-    // {
-    //     GameInputManager.Instance.dropInput += DropItem;
-    // }
-
-    // void OnDisable()
-    // {
-    //     GameInputManager.Instance.dropInput -= DropItem;
-    // }
     public void AddItem(UsableItem item)
     {
         if (item == null) return;
@@ -34,31 +25,15 @@ public class PlayerItem : MonoBehaviour
         if (items.Remove(item))
             OnInventoryChanged?.Invoke();
     }
-    // public void DropItem()
-    // {
-    //     if (currentItem != null)
-    //     {
-    //         // 斷開父物件
-    //         currentItem.transform.SetParent(null);
 
+    public bool HasItem(ItemData data) =>
+        data != null && items.Any(i => i != null && i.itemData == data);
 
-    //         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
-    //         if (rb != null)
-    //         {
-    //             rb.isKinematic = false;
-    //             rb.AddForce(transform.transform.forward * 1.6f, ForceMode.Impulse); // 向前丟
-    //             rb.drag = 1f;
-    //             rb.angularDrag = 2f;
-    //             // rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-    //         }
-
-    //         currentItem = null;
-    //     }
-    // }
-
-    // public void RemoveItem()
-    // {
-    //     Destroy(currentItem.gameObject);
-    //     currentItem = null;
-    // }
+    public bool TryGetItem(ItemData data, out UsableItem item)
+    {
+        item = null;
+        if (data == null) return false;
+        item = items.FirstOrDefault(i => i != null && i.itemData == data);
+        return item != null;
+    }
 }

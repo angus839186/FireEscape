@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 308728390}
   - component: {fileID: 308728389}
   - component: {fileID: 308728388}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
 --- !u!65 &308728389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 520027813}
   - component: {fileID: 520027812}
   - component: {fileID: 520027811}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
 --- !u!65 &520027812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -868,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec427f9c56e90fb4ca1a4331a30937ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItem: {fileID: 0}
   requiredKeyID: 
   anime: {fileID: 1519583107}
   hint: {fileID: 11400000, guid: 4c0b1c4e2d2fa4d4ab1f0f92b771becc, type: 2}
@@ -993,7 +996,7 @@ GameObject:
   - component: {fileID: 1705254932}
   - component: {fileID: 1705254931}
   - component: {fileID: 1705254930}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,6 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
 --- !u!65 &1705254931
 BoxCollider:
   m_ObjectHideFlags: 0
