@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5f;
 
+    public bool interacting;
+
     // void OnEnable()
     // {
     //     inputManager = FindAnyObjectByType<GameInputManager>();
@@ -58,12 +60,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ApplyGravity();
-        Move();
+        if(!interacting)
+        {
+            Move();
+        }
     }
 
     void LateUpdate()
     {
-        playerLook.playerRotate(rotate);
+        if(!interacting)
+        {
+            playerLook.playerRotate(rotate);
+        }
     }
 
     public void HandleMoveInput(Vector2 _moveInput)

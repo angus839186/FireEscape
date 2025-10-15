@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Fire : InteractableItem
 {
+    public ParticleSystem FireFX;
+    public AudioSource FireSound;
+
+    public bool PutOut;
     public override void Interact(PlayerInteraction player)
     {
-        if (!CheckRequirements(player, out var inv))
+        if (CheckRequirements(player, out var inv))
         {
-            Debug.Log("需要滅火器才能撲滅火焰。");
+            if (player.TryGetComponent<PlayerInteractAction>(out var playerAction))
+            {
+                playerAction.ExtinguishFire();
+            }
+            StartCoroutine(PutOutFire());
         }
         else
         {
@@ -25,5 +33,13 @@ public class Fire : InteractableItem
             Debug.Log("被火燙到了");
             player.TakeDamage(1);
         }
+    }
+    IEnumerator PutOutFire()
+    {
+        PutOut = true;
+        yield return new WaitForSeconds(3f);
+        FireFX.Stop();
+        FireSound.Stop();
+        GetComponent<BoxCollider>().enabled = false;
     }
 }
