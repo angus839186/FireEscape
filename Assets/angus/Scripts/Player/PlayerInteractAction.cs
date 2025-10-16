@@ -9,6 +9,7 @@ public class PlayerInteractAction : MonoBehaviour
 {
     [Header("滅火")]
     public ParticleSystem powderFX;
+    public AudioSource powderSFX;
     public GameObject Extinguisher;
     public void ExtinguishFire()
     {
@@ -19,8 +20,10 @@ public class PlayerInteractAction : MonoBehaviour
         ToggleInteracting(true);
         Extinguisher.SetActive(true);
         powderFX.Play();
+        powderSFX.Play();
         yield return new WaitForSeconds(3.5f);
         powderFX.Stop();
+        powderSFX.Stop();
         Extinguisher.SetActive(false);
         ToggleInteracting(false);
     }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class LevelSelectUI : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class LevelSelectUI : MonoBehaviour
 
     public LevelData[] levels;
 
-    public SceneLoader sceneloader;
+    public event Action<LevelData> OnSelectLevel;
 
     public void CloseLevelSelectUI()
     {
@@ -18,6 +20,6 @@ public class LevelSelectUI : MonoBehaviour
     public void SelectLevel(int index)
     {
         LevelData level = levels[index];
-        sceneloader.LoadLevel(level);
+        OnSelectLevel?.Invoke(level);
     }
 }
