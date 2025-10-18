@@ -23,19 +23,19 @@ public class LevelVideoUI : MonoBehaviour
 
     void Awake()
     {
-        levelselectUI = levelselectUI ?? FindFirstObjectByType<LevelSelectUI>();
-        if (levelselectUI) levelselectUI.OnSelectLevel += PlayVideo;
+        // levelselectUI = levelselectUI ?? FindFirstObjectByType<LevelSelectUI>();
+        // if (levelselectUI) levelselectUI.OnSelectLevel += PlayVideo;
 
-        if (skipButton)
-        {
-            skipButton.onClick.AddListener(OnSkipClicked);
-            skipButton.gameObject.SetActive(false);
-        }
+        // if (skipButton)
+        // {
+        //     skipButton.onClick.AddListener(OnSkipClicked);
+        //     skipButton.gameObject.SetActive(false);
+        // }
     }
 
     void OnDisable()
     {
-        if (levelselectUI) levelselectUI.OnSelectLevel -= PlayVideo;
+        // if (levelselectUI) levelselectUI.OnSelectLevel -= PlayVideo;
         if (skipButton) skipButton.onClick.RemoveListener(OnSkipClicked);
     }
 

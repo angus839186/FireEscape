@@ -10,8 +10,6 @@ public class LevelSelectUI : MonoBehaviour
 
     public LevelData[] levels;
 
-    public event Action<LevelData> OnSelectLevel;
-
     public void CloseLevelSelectUI()
     {
         LevelSelectMenu.SetActive(false);
@@ -20,6 +18,6 @@ public class LevelSelectUI : MonoBehaviour
     public void SelectLevel(int index)
     {
         LevelData level = levels[index];
-        OnSelectLevel?.Invoke(level);
+        GameManager.Instance.StartGameScene(level);
     }
 }

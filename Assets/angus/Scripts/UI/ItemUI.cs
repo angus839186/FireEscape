@@ -44,7 +44,7 @@ public class ItemUI : MonoBehaviour
 
         Clear();
 
-        var list = playerItem.Items; // IReadOnlyList<UsableItem>
+        var list = playerItem.Items;
         for (int i = 0; i < list.Count; i++)
         {
             var slot = Instantiate(slotPrefab, contentRoot);
