@@ -35,31 +35,31 @@ public class SceneLoader : MonoBehaviour
             while (!unloadOp.isDone) yield return null;
         }
 
-        SpawnPlayerAtSpawnPoint(level);
+        // SpawnPlayerAtSpawnPoint(level);
 
-        LoadUI();
+        // LoadUI();
     }
 
-    private void SpawnPlayerAtSpawnPoint(LevelData level)
-    {
-        var spawner = FindFirstObjectByType<PlayerSpawner>();
-        Vector3 pos = level.defaultSpawnPos;
-        Quaternion rot = Quaternion.Euler(level.defaultSpawnEuler);
+    // private void SpawnPlayerAtSpawnPoint(LevelData level)
+    // {
+    //     var spawner = FindFirstObjectByType<PlayerSpawner>();
+    //     Vector3 pos = level.defaultSpawnPos;
+    //     Quaternion rot = Quaternion.Euler(level.defaultSpawnEuler);
 
-        if (spawner != null)
-        {
-            pos = spawner.SpawnPosition;
-            rot = Quaternion.Euler(spawner.SpawnEuler);
-        }
+    //     if (spawner != null)
+    //     {
+    //         pos = spawner.SpawnPosition;
+    //         rot = Quaternion.Euler(spawner.SpawnEuler);
+    //     }
 
-        var player = Instantiate(playerPrefab, pos, rot);
-    }
+    //     var player = Instantiate(playerPrefab, pos, rot);
+    // }
 
-    private void LoadUI()
-    {
-        if (!SceneManager.GetSceneByName("UI").isLoaded)
-        {
-            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-        }
-    }
+    // private void LoadUI()
+    // {
+    //     if (!SceneManager.GetSceneByName("UI").isLoaded)
+    //     {
+    //         SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+    //     }
+    // }
 }
