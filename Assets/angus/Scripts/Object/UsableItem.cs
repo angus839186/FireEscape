@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
+
 public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
 {
     public ItemData itemData;
