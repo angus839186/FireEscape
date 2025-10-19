@@ -6,18 +6,34 @@ using UnityEngine.UI;
 
 public class Bed : InteractableItem
 {
+    public AudioSource alarmBell;
+
+    public event Action<bool> playerSleep;
+
+    public float sleepDelayTime;
+
+    public bool interactOnce;
     public override void Interact(PlayerInteraction player)
     {
-
+        if(interactOnce)
+        {
+            SleepAndWakeUp(player);
+            interactOnce = false;
+        }
     }
 
-    public void SleepAndWakeUp()
+    public void SleepAndWakeUp(PlayerInteraction player)
     {
-        StartCoroutine(SleepAndWakeUpCoroutine());
+        playerSleep?.Invoke(true);
+        player.GetComponent<PlayerInteractAction>().ToggleInteracting(true);
+        StartCoroutine(SleepAndWakeUpCoroutine(player));
     }
     
-    IEnumerator SleepAndWakeUpCoroutine()
+    IEnumerator SleepAndWakeUpCoroutine(PlayerInteraction player)
     {
-        yield return null;
+        yield return new WaitForSeconds(sleepDelayTime);
+        playerSleep?.Invoke(false);
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<PlayerInteractAction>().ToggleInteracting(false);
     }
 }

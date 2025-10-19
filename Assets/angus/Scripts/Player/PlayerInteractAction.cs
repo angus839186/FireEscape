@@ -11,6 +11,15 @@ public class PlayerInteractAction : MonoBehaviour
     public ParticleSystem powderFX;
     public AudioSource powderSFX;
     public GameObject Extinguisher;
+    public float InteractingDelayTime;
+
+    
+
+    void Awake()
+    {
+        
+    }
+
     public void ExtinguishFire()
     {
         StartCoroutine(ExtinguishFireRoutine());
@@ -21,7 +30,7 @@ public class PlayerInteractAction : MonoBehaviour
         Extinguisher.SetActive(true);
         powderFX.Play();
         powderSFX.Play();
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(InteractingDelayTime);
         powderFX.Stop();
         powderSFX.Stop();
         Extinguisher.SetActive(false);
