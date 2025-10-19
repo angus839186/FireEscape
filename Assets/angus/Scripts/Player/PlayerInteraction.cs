@@ -12,48 +12,57 @@ public class PlayerInteraction : MonoBehaviour
 
     public event Action<bool> InteractHint;
 
+    private bool _lastHintVisible = false;
+
     void Start()
     {
-        GameInputManager.Instance.interactInput += TryInteract;
+        if (GameInputManager.Instance != null)
+            GameInputManager.Instance.interactInput += TryInteract;
     }
 
     void OnDisable()
     {
-        GameInputManager.Instance.interactInput -= TryInteract;
+        if (GameInputManager.Instance != null)
+            GameInputManager.Instance.interactInput -= TryInteract;
     }
 
     void Update()
     {
-        if (CanInteract(out IInteractable interactable))
+        bool hasHitInteractableLayer = HasInteractableInSight();
+
+
+        if (hasHitInteractableLayer != _lastHintVisible)
         {
-            InteractHint?.Invoke(true);
-        }
-        else
-        {
-            InteractHint?.Invoke(false);
+            _lastHintVisible = hasHitInteractableLayer;
+            InteractHint?.Invoke(hasHitInteractableLayer);
         }
     }
 
     private void TryInteract()
     {
-        if(CanInteract(out IInteractable interactable))
+        if (TryGetInteractable(out IInteractable interactable))
         {
             interactable.Interact(this);
         }
     }
-    private bool CanInteract(out IInteractable interactable)
+
+
+    private bool HasInteractableInSight()
+    {
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        return Physics.Raycast(ray, interactionDistance, interactableLayer);
+    }
+
+
+    private bool TryGetInteractable(out IInteractable interactable)
     {
         interactable = null;
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer))
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance, interactableLayer))
         {
             interactable = hit.collider.GetComponent<IInteractable>();
-            if(interactable != null)
-            {
-                return true;
-            }
+            return true;
         }
         return false;
     }

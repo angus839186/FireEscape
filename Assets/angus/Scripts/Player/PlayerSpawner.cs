@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PlayerSpawner : MonoBehaviour
     void OnDisable()
     {
         PreviewScreen preview = FindFirstObjectByType<PreviewScreen>();
-        if(preview != null)
+        if (preview != null)
         {
             preview.StopPreviewVideo -= SpawnPlayerAndUI;
         }
@@ -41,7 +42,7 @@ public class PlayerSpawner : MonoBehaviour
 
     IEnumerator SpawnRoutine()
     {
-        if(!FindFirstObjectByType<GameInputManager>())
+        if (!FindFirstObjectByType<GameInputManager>())
         {
             Instantiate(GameInputPrefab);
         }
@@ -50,10 +51,13 @@ public class PlayerSpawner : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        SceneLoader sceneloader = FindFirstObjectByType<SceneLoader>();
-        if(sceneloader != null)
+        
+        if (!FindFirstObjectByType<SceneLoader>())
         {
-            sceneloader.LoadUI();
+            if (!SceneManager.GetSceneByName("UI").isLoaded)
+            {
+                SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+            }
         }
     }
 }

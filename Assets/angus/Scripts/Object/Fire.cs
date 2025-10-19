@@ -6,8 +6,6 @@ public class Fire : InteractableItem
 {
     public ParticleSystem FireFX;
     public AudioSource FireSound;
-
-    public bool PutOut;
     public override void Interact(PlayerInteraction player)
     {
         if (CheckRequirements(player, out var inv))
@@ -36,7 +34,6 @@ public class Fire : InteractableItem
     }
     IEnumerator PutOutFire()
     {
-        PutOut = true;
         yield return new WaitForSeconds(3f);
         FireFX.Stop();
         FireSound.Stop();

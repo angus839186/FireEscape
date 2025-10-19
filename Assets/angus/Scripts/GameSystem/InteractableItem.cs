@@ -6,6 +6,10 @@ using UnityEngine;
 public abstract class InteractableItem : MonoBehaviour, IInteractable
 {
     [SerializeField] private ItemData requiredItem;
+
+    public Hint hint;
+    public bool canInteract;
+
     protected bool CheckRequirements(PlayerInteraction player, out PlayerItem playerItem)
     {
         playerItem = null;

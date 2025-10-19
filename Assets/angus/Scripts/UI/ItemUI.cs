@@ -14,7 +14,6 @@ public class ItemUI : MonoBehaviour
     private void Awake()
     {
         playerItem = FindFirstObjectByType<PlayerItem>();
-        Debug.Log(playerItem);
         playerItem.OnInventoryChanged += Refresh;
     }
 

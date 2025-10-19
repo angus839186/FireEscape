@@ -11,7 +11,6 @@ public class InteractUI : MonoBehaviour
     void Awake()
     {
         playerInteraction = FindFirstObjectByType<PlayerInteraction>();
-        Debug.Log(playerInteraction);
         playerInteraction.InteractHint += ToggleInteractHint;
     }
 
