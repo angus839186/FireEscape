@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class Bed : InteractableItem
 {
     public AudioSource alarmBell;
+    public AudioSource phoneBell;
 
     public event Action<bool> playerSleep;
 
-    public float sleepDelayTime;
+    public float wakeUpDelayTime;
+    public float warningDelayTime;
 
     public bool interactOnce;
     public override void Interact(PlayerInteraction player)
@@ -31,9 +33,11 @@ public class Bed : InteractableItem
     
     IEnumerator SleepAndWakeUpCoroutine(PlayerInteraction player)
     {
-        yield return new WaitForSeconds(sleepDelayTime);
+        yield return new WaitForSeconds(warningDelayTime);
+        alarmBell.Play();
+        yield return new WaitForSeconds(wakeUpDelayTime);
         playerSleep?.Invoke(false);
-        yield return new WaitForSeconds(1f);
+        phoneBell.Play();
         player.GetComponent<PlayerInteractAction>().ToggleInteracting(false);
     }
 }
