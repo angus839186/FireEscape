@@ -8,7 +8,7 @@ public class LevelData : ScriptableObject
 {
     public string sceneName;
 
-    public VideoClip video;
+    // public VideoClip video;
     public Vector3 defaultSpawnPos;
     public Vector3 defaultSpawnEuler;
 }

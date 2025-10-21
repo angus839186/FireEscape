@@ -7,19 +7,21 @@ using System.Linq;
 public class PlayerItem : MonoBehaviour
 {
 
-    public List<UsableItem> items;
+    public List<ItemData> items;
 
-    public IReadOnlyList<UsableItem> Items => items;
+    public IReadOnlyList<ItemData> Items => items;
 
     public event Action OnInventoryChanged;
-    public void AddItem(UsableItem item)
+
+
+    public void AddItem(ItemData item)
     {
         if (item == null) return;
         items.Add(item);
         OnInventoryChanged?.Invoke();
     }
 
-    public void RemoveItem(UsableItem item)
+    public void RemoveItem(ItemData item)
     {
         if (item == null) return;
         if (items.Remove(item))
@@ -27,13 +29,13 @@ public class PlayerItem : MonoBehaviour
     }
 
     public bool HasItem(ItemData data) =>
-        data != null && items.Any(i => i != null && i.itemData == data);
+        data != null && items.Any(i => i != null && i == data);
 
-    public bool TryGetItem(ItemData data, out UsableItem item)
+    public bool TryGetItem(ItemData data, out ItemData item)
     {
         item = null;
         if (data == null) return false;
-        item = items.FirstOrDefault(i => i != null && i.itemData == data);
+        item = items.FirstOrDefault(i => i != null && i == data);
         return item != null;
     }
 }

@@ -15,7 +15,7 @@ public class GameInputManager : MonoBehaviour
 
     public event Action interactInput;
 
-    public event Action dropInput;
+    public event Action<bool> useItemInput;
 
     private void Awake()
     {
@@ -45,8 +45,9 @@ public class GameInputManager : MonoBehaviour
         gameInput.Player.Crouch.canceled += ctx => crouchInput?.Invoke();
 
         gameInput.Player.Interact.performed += ctx => interactInput?.Invoke();
-        
-        gameInput.Player.Drop.performed += ctx => dropInput?.Invoke();
+
+        gameInput.Player.UseItem.performed += ctx => useItemInput?.Invoke(true);
+        gameInput.Player.UseItem.canceled += ctx => useItemInput?.Invoke(false);
     }
 
     private void OnDisable()
@@ -62,7 +63,8 @@ public class GameInputManager : MonoBehaviour
 
         gameInput.Player.Interact.performed -= ctx => interactInput?.Invoke();
 
-        gameInput.Player.Drop.performed -= ctx => dropInput?.Invoke();
+        gameInput.Player.UseItem.performed -= ctx => useItemInput?.Invoke(true);
+        gameInput.Player.UseItem.canceled -= ctx => useItemInput?.Invoke(false);
 
         gameInput.Player.Disable();
     }

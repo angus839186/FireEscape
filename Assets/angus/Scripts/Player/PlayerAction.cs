@@ -1,0 +1,91 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
+public class PlayerAction : MonoBehaviour
+{
+    [Header("滅火器")]
+    public ParticleSystem powderFX;
+    public AudioSource powderSFX;
+    public GameObject Extinguisher;
+    public float extinguishingDelayTime;
+
+    [Header("消防斧")]
+    public GameObject fireAxe;
+
+    public Animator fireAxeAnimator;
+    public float fireAxeDelayTime;
+
+    [Header("抹布")]
+    public GameObject rag;
+    public bool ragisWet;
+    public Animator ragAnimator;
+
+
+
+    void Awake()
+    {
+        GameInputManager.Instance.useItemInput += useRag;
+    }
+
+    void OnDisable()
+    {
+        GameInputManager.Instance.useItemInput += useRag;
+    }
+
+    public void ExtinguishFire()
+    {
+        StartCoroutine(ExtinguishFireRoutine());
+    }
+    IEnumerator ExtinguishFireRoutine()
+    {
+        ToggleInteracting(true);
+        Extinguisher.SetActive(true);
+        powderFX.Play();
+        powderSFX.Play();
+        yield return new WaitForSeconds(extinguishingDelayTime);
+        powderFX.Stop();
+        powderSFX.Stop();
+        Extinguisher.SetActive(false);
+        ToggleInteracting(false);
+    }
+    public void ToggleInteracting(bool toggle)
+    {
+        PlayerController player = GetComponent<PlayerController>();
+        player.interacting = toggle;
+    }
+
+    public void useRag(bool toggle)
+    {
+        if (ragisWet == false) return;
+        if (toggle == true)
+        {
+            ragAnimator.SetFloat("holdingRag", 1f);
+            ragAnimator.CrossFade("mugAnime", 0.1f, 0, 0);
+        }
+        else
+        {
+            ragAnimator.SetFloat("holdingRag", -1f);
+            ragAnimator.CrossFade("mugAnime", 0.1f, 0, 1f);
+        }
+    }
+
+    public void DestroyBarricade()
+    {
+        StartCoroutine(DestroyBarricadeCoroutine());
+    }
+
+    IEnumerator DestroyBarricadeCoroutine()
+    {
+        ToggleInteracting(true);
+        fireAxe.SetActive(true);
+        fireAxeAnimator.SetTrigger("use");
+        yield return new WaitForSeconds(fireAxeDelayTime);
+        fireAxe.SetActive(false);
+        ToggleInteracting(false);
+    }
+}

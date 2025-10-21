@@ -48,7 +48,7 @@ public class ItemUI : MonoBehaviour
         {
             var slot = Instantiate(slotPrefab, contentRoot);
             _slots.Add(slot);
-            var data = list[i]?.itemData;
+            var data = list[i];
             slot.Set(data);
         }
     }

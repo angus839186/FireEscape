@@ -7,7 +7,7 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
 
     public virtual void Interact(PlayerInteraction player)
     {
-        player.GetComponent<PlayerItem>().AddItem(this);
+        player.GetComponent<PlayerItem>().AddItem(this.itemData);
         this.gameObject.SetActive(false);
     }
 }

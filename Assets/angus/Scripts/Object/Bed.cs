@@ -32,12 +32,12 @@ public class Bed : InteractableItem
     IEnumerator SleepAndWakeUpCoroutine(PlayerInteraction player)
     {
         playerSleep?.Invoke(true);
-        player.GetComponent<PlayerInteractAction>().ToggleInteracting(true);
+        player.GetComponent<PlayerAction>().ToggleInteracting(true);
         yield return new WaitForSeconds(warningDelayTime);
         alarmBell.Play();
         yield return new WaitForSeconds(wakeUpDelayTime);
         playerSleep?.Invoke(false);
         cellPhone.StartRing();
-        player.GetComponent<PlayerInteractAction>().ToggleInteracting(false);
+        player.GetComponent<PlayerAction>().ToggleInteracting(false);
     }
 }

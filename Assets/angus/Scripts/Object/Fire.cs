@@ -10,7 +10,7 @@ public class Fire : InteractableItem
     {
         if (CheckRequirements(player, out var inv))
         {
-            if (player.TryGetComponent<PlayerInteractAction>(out var playerAction))
+            if (player.TryGetComponent<PlayerAction>(out var playerAction))
             {
                 playerAction.ExtinguishFire();
             }

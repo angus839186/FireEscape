@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameInputManager inputManager;
     [SerializeField]
     private CharacterController character;
 
@@ -32,35 +31,23 @@ public class PlayerController : MonoBehaviour
 
     public bool interacting;
 
-    // void OnEnable()
-    // {
-    //     inputManager = FindAnyObjectByType<GameInputManager>();
-
-    //     inputManager.moveInput += HandleMoveInput;
-    //     inputManager.rotateInput += HandleRotateInput;
-    // }
-
-    void OnDisable()
-    {
-        if (inputManager != null)
-        {
-            inputManager.moveInput -= HandleMoveInput;
-            inputManager.rotateInput -= HandleRotateInput;
-        }
-    }
 
     void Start()
     {
-        inputManager = FindAnyObjectByType<GameInputManager>();
+        GameInputManager.Instance.moveInput += HandleMoveInput;
+        GameInputManager.Instance.rotateInput += HandleRotateInput;
+    }
 
-        inputManager.moveInput += HandleMoveInput;
-        inputManager.rotateInput += HandleRotateInput;
+    void OnDisable()
+    {
+        GameInputManager.Instance.moveInput -= HandleMoveInput;
+        GameInputManager.Instance.rotateInput -= HandleRotateInput;
     }
 
     void Update()
     {
         ApplyGravity();
-        if(!interacting)
+        if (!interacting)
         {
             Move();
         }
@@ -68,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        if(!interacting)
+        if (!interacting)
         {
             playerLook.playerRotate(rotate);
         }
