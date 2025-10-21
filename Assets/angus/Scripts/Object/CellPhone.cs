@@ -8,8 +8,6 @@ public class CellPhone : InteractableItem
     public AudioSource phoneSound;
 
     public Door bedroomDoor;
-
-    public event Action GetCallAction;
     public override void Interact(PlayerInteraction player)
     {
         if (canInteract)

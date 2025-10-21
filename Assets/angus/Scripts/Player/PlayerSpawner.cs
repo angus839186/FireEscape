@@ -50,14 +50,9 @@ public class PlayerSpawner : MonoBehaviour
         Instantiate(PlayerPrefab, SpawnPosition, rot);
 
         yield return new WaitForSeconds(0.5f);
-
-        
-        if (!FindFirstObjectByType<SceneLoader>())
+        if (!SceneManager.GetSceneByName("UI").isLoaded)
         {
-            if (!SceneManager.GetSceneByName("UI").isLoaded)
-            {
-                SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-            }
+            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
         }
     }
 }

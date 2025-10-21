@@ -35,12 +35,4 @@ public class SceneLoader : MonoBehaviour
             while (!unloadOp.isDone) yield return null;
         }
     }
-
-    public void LoadUI()
-    {
-        if (!SceneManager.GetSceneByName("UI").isLoaded)
-        {
-            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-        }
-    }
 }
