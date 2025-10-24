@@ -23,6 +23,8 @@ public class PlayerAction : MonoBehaviour
     [Header("抹布")]
     public GameObject rag;
     public bool ragisWet;
+
+    public bool usingRag;
     public Animator ragAnimator;
 
 
@@ -34,7 +36,7 @@ public class PlayerAction : MonoBehaviour
 
     void OnDisable()
     {
-        GameInputManager.Instance.useItemInput += useRag;
+        GameInputManager.Instance.useItemInput -= useRag;
     }
 
     public void ExtinguishFire()
@@ -62,16 +64,10 @@ public class PlayerAction : MonoBehaviour
     public void useRag(bool toggle)
     {
         if (ragisWet == false) return;
-        if (toggle == true)
-        {
-            ragAnimator.SetFloat("holdingRag", 1f);
-            ragAnimator.CrossFade("mugAnime", 0.1f, 0, 0);
-        }
-        else
-        {
-            ragAnimator.SetFloat("holdingRag", -1f);
-            ragAnimator.CrossFade("mugAnime", 0.1f, 0, 1f);
-        }
+        usingRag = toggle;
+        float startTime = usingRag ? 0f : 1f;
+        ragAnimator.SetFloat("holdingRag", usingRag ? 1f : -1f);
+        ragAnimator.Play("mugAnime", 0, startTime);
     }
 
     public void DestroyBarricade()

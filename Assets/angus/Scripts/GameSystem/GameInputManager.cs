@@ -11,7 +11,7 @@ public class GameInputManager : MonoBehaviour
     public event Action<Vector2> moveInput;
     public event Action<Vector2> rotateInput;
 
-    public event Action crouchInput;
+    public event Action<bool> crouchInput;
 
     public event Action interactInput;
 
@@ -41,8 +41,8 @@ public class GameInputManager : MonoBehaviour
         gameInput.Player.Look.performed += OnLookPerformed;
         gameInput.Player.Look.canceled += OnLookCanceled;
 
-        gameInput.Player.Crouch.performed += ctx => crouchInput?.Invoke();
-        gameInput.Player.Crouch.canceled += ctx => crouchInput?.Invoke();
+        gameInput.Player.Crouch.performed += ctx => crouchInput?.Invoke(true);
+        gameInput.Player.Crouch.canceled += ctx => crouchInput?.Invoke(false);
 
         gameInput.Player.Interact.performed += ctx => interactInput?.Invoke();
 
@@ -58,8 +58,8 @@ public class GameInputManager : MonoBehaviour
         gameInput.Player.Look.performed -= OnLookPerformed;
         gameInput.Player.Look.canceled -= OnLookCanceled;
 
-        gameInput.Player.Crouch.performed -= ctx => crouchInput?.Invoke();
-        gameInput.Player.Crouch.canceled -= ctx => crouchInput?.Invoke();
+        gameInput.Player.Crouch.performed -= ctx => crouchInput?.Invoke(true);
+        gameInput.Player.Crouch.canceled -= ctx => crouchInput?.Invoke(false);
 
         gameInput.Player.Interact.performed -= ctx => interactInput?.Invoke();
 

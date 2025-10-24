@@ -6,12 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class HintTrigger : MonoBehaviour
 {
+    public bool TriggerOnce;
     public Hint hint;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            HintManager.Instance.ShowHint(hint);
+            if (TriggerOnce)
+            {
+                HintManager.Instance.ShowHint(hint);
+                TriggerOnce = false;
+            }
         }
     }
 }

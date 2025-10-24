@@ -16,10 +16,6 @@ public class Fire : InteractableItem
             }
             StartCoroutine(PutOutFire());
         }
-        else
-        {
-            Debug.Log("滅火!!");
-        }
 
     }
 

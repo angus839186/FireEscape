@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,16 +12,15 @@ public class PlayerHealth : MonoBehaviour
     public bool hurting;
     public float delayTime;
 
+    public event Action<int> OnPlayerHealthChanged;
+
     void Start()
     {
         currentHealth = maxHealth;
         hurting = false;
     }
 
-    void UpdateHealth()
-    {
-        
-    }
+    
     public void TakeDamage(int damage)
     {
         if (hurting == true) return;
@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
     {
         hurting = true;
         currentHealth -= damage;
-        UpdateHealth();
+        OnPlayerHealthChanged?.Invoke(currentHealth);
         if (currentHealth <= 0)
         {
             Die();

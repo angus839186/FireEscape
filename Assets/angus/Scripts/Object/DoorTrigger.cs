@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class Door : InteractableItem
+public class DoorTrigger : InteractableItem
 {
     [Header("Door Setup")]
     public bool locked;
@@ -35,7 +35,6 @@ public class Door : InteractableItem
     public void ToggleDoor(Transform player)
     {
         opened = !opened;
-        Debug.Log(player);
         if (rotateCR != null) StopCoroutine(rotateCR);
         rotateCR = StartCoroutine(DoorRotate(opened, player));
     }
