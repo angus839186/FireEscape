@@ -5783,9 +5783,6 @@ MonoBehaviour:
   cameraRoot: {fileID: 1454253380939729044}
   eyeHeightRatio: 0.9
   crouchSmoothTime: 0.12
-  headObstructionMask:
-    serializedVersion: 2
-    m_Bits: 119
   crouchSpeedMultiplier: 0.7
   wantsCrouch: 0
 --- !u!114 &1411529437397734914
@@ -5845,7 +5842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63b8ec52aae6cd40883e9eebf6f24b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 3
   currentHealth: 0
   hurting: 0
   delayTime: 2.5

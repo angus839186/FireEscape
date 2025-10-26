@@ -20,7 +20,7 @@ public class TransitionUI : MonoBehaviour
         if (_bed != null) _bed.playerSleep -= TransitionImage;
     }
 
-    void TransitionImage(bool toggle)
+    public void TransitionImage(bool toggle)
     {
         if (_running != null) StopCoroutine(_running);
         _running = StartCoroutine(TransitionCoroutine(toggle));
@@ -33,7 +33,6 @@ public class TransitionUI : MonoBehaviour
         float target = toggle ? 1f : 0f;
 
 
-        transitionCanvas.blocksRaycasts = target > transitionCanvas.alpha;
 
         while (!Mathf.Approximately(transitionCanvas.alpha, target))
         {
@@ -47,7 +46,6 @@ public class TransitionUI : MonoBehaviour
 
         // 校正到精確目標值
         transitionCanvas.alpha = target;
-        transitionCanvas.blocksRaycasts = target > 0f;
 
         _running = null;
     }

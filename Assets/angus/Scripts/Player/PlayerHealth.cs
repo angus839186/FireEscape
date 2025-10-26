@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Die()
     {
+        GameManager.Instance.LevelEnd(false);
         Debug.Log("Player has died");
     }
 

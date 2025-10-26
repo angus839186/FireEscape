@@ -19,54 +19,61 @@ public class GameInputManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
         }
     }
 
     private void OnEnable()
     {
         gameInput = new GameInput();
-        gameInput.Player.Enable();
+        if (gameInput != null)
+        {
+            gameInput.Player.Enable();
 
-        gameInput.Player.Movement.performed += OnMovePerformed;
-        gameInput.Player.Movement.canceled += OnMoveCanceled;
+            gameInput.Player.Movement.performed += OnMovePerformed;
+            gameInput.Player.Movement.canceled += OnMoveCanceled;
 
-        gameInput.Player.Look.performed += OnLookPerformed;
-        gameInput.Player.Look.canceled += OnLookCanceled;
+            gameInput.Player.Look.performed += OnLookPerformed;
+            gameInput.Player.Look.canceled += OnLookCanceled;
 
-        gameInput.Player.Crouch.performed += ctx => crouchInput?.Invoke(true);
-        gameInput.Player.Crouch.canceled += ctx => crouchInput?.Invoke(false);
+            gameInput.Player.Crouch.performed += ctx => crouchInput?.Invoke(true);
+            gameInput.Player.Crouch.canceled += ctx => crouchInput?.Invoke(false);
 
-        gameInput.Player.Interact.performed += ctx => interactInput?.Invoke();
+            gameInput.Player.Interact.performed += ctx => interactInput?.Invoke();
 
-        gameInput.Player.UseItem.performed += ctx => useItemInput?.Invoke(true);
-        gameInput.Player.UseItem.canceled += ctx => useItemInput?.Invoke(false);
+            gameInput.Player.UseItem.performed += ctx => useItemInput?.Invoke(true);
+            gameInput.Player.UseItem.canceled += ctx => useItemInput?.Invoke(false);
+        }
     }
 
     private void OnDisable()
     {
-        gameInput.Player.Movement.performed -= OnMovePerformed;
-        gameInput.Player.Movement.canceled -= OnMoveCanceled;
+        if (gameInput != null)
+        {
+            gameInput.Player.Movement.performed -= OnMovePerformed;
+            gameInput.Player.Movement.canceled -= OnMoveCanceled;
 
-        gameInput.Player.Look.performed -= OnLookPerformed;
-        gameInput.Player.Look.canceled -= OnLookCanceled;
+            gameInput.Player.Look.performed -= OnLookPerformed;
+            gameInput.Player.Look.canceled -= OnLookCanceled;
 
-        gameInput.Player.Crouch.performed -= ctx => crouchInput?.Invoke(true);
-        gameInput.Player.Crouch.canceled -= ctx => crouchInput?.Invoke(false);
+            gameInput.Player.Crouch.performed -= ctx => crouchInput?.Invoke(true);
+            gameInput.Player.Crouch.canceled -= ctx => crouchInput?.Invoke(false);
 
-        gameInput.Player.Interact.performed -= ctx => interactInput?.Invoke();
+            gameInput.Player.Interact.performed -= ctx => interactInput?.Invoke();
 
-        gameInput.Player.UseItem.performed -= ctx => useItemInput?.Invoke(true);
-        gameInput.Player.UseItem.canceled -= ctx => useItemInput?.Invoke(false);
+            gameInput.Player.UseItem.performed -= ctx => useItemInput?.Invoke(true);
+            gameInput.Player.UseItem.canceled -= ctx => useItemInput?.Invoke(false);
 
-        gameInput.Player.Disable();
+            gameInput.Player.Disable();
+        }
     }
 
     private void OnMovePerformed(InputAction.CallbackContext ctx)

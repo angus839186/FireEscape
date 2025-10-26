@@ -11,6 +11,7 @@ public class HealthUI : MonoBehaviour
     {
         PlayerHealth hp = FindObjectOfType<PlayerHealth>();
         hp.OnPlayerHealthChanged += UpdateHealth;
+        healthText.text = hp.currentHealth.ToString();
     }
 
     void OnDisable()
