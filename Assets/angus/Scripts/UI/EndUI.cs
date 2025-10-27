@@ -10,11 +10,17 @@ public class EndUI : MonoBehaviour
     public GameObject loseUI;
     void Awake()
     {
-        GameManager.Instance.OnLevelEnd += ToggleEndUI;
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.OnLevelEnd += ToggleEndUI;
+        }
     }
     void OnDisable()
     {
-        GameManager.Instance.OnLevelEnd -= ToggleEndUI;
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.OnLevelEnd -= ToggleEndUI;
+        }
         
     }
     void ToggleEndUI(bool win)

@@ -11,12 +11,18 @@ public class InteractUI : MonoBehaviour
     void Awake()
     {
         playerInteraction = FindFirstObjectByType<PlayerInteraction>();
-        playerInteraction.InteractHint += ToggleInteractHint;
+        if(playerInteraction != null)
+        {
+            playerInteraction.InteractHint += ToggleInteractHint;
+        }
     }
 
     void OnDisable()
     {
-        playerInteraction.InteractHint -= ToggleInteractHint;
+        if(playerInteraction != null)
+        {
+            playerInteraction.InteractHint -= ToggleInteractHint;
+        }
     }
 
     public void ToggleInteractHint(bool toggle)

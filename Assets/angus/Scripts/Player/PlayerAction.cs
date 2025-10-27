@@ -45,7 +45,7 @@ public class PlayerAction : MonoBehaviour
     }
     IEnumerator ExtinguishFireRoutine()
     {
-        ToggleInteracting(true);
+        ToggleFreeze(true);
         Extinguisher.SetActive(true);
         powderFX.Play();
         powderSFX.Play();
@@ -53,9 +53,9 @@ public class PlayerAction : MonoBehaviour
         powderFX.Stop();
         powderSFX.Stop();
         Extinguisher.SetActive(false);
-        ToggleInteracting(false);
+        ToggleFreeze(false);
     }
-    public void ToggleInteracting(bool toggle)
+    public void ToggleFreeze(bool toggle)
     {
         PlayerController player = GetComponent<PlayerController>();
         player.interacting = toggle;
@@ -77,11 +77,11 @@ public class PlayerAction : MonoBehaviour
 
     IEnumerator DestroyBarricadeCoroutine()
     {
-        ToggleInteracting(true);
+        ToggleFreeze(true);
         fireAxe.SetActive(true);
         fireAxeAnimator.SetTrigger("use");
         yield return new WaitForSeconds(fireAxeDelayTime);
         fireAxe.SetActive(false);
-        ToggleInteracting(false);
+        ToggleFreeze(false);
     }
 }

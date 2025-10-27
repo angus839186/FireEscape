@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [Header("Crouch")]
     public float standingHeight = 2f;
     public float crouchHeight = 1f;
-    
+
 
     [SerializeField] private Transform cameraRoot;
 
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         // 初始高度與目標高度
         currentHeight = character.height > 0 ? character.height : standingHeight;
         targetHeight = currentHeight;
-        
+
         character.height = currentHeight;
         Vector3 c = character.center;
         c.y = currentHeight * 0.5f;
@@ -67,16 +67,27 @@ public class PlayerController : MonoBehaviour
             cameraRoot.localPosition = lp;
         }
 
-        GameInputManager.Instance.moveInput   += HandleMoveInput;
-        GameInputManager.Instance.rotateInput += HandleRotateInput;
-        GameInputManager.Instance.crouchInput += HandleCrouchInput;
+        if (GameInputManager.Instance != null)
+        {
+            GameInputManager.Instance.moveInput += HandleMoveInput;
+            GameInputManager.Instance.rotateInput += HandleRotateInput;
+            GameInputManager.Instance.crouchInput += HandleCrouchInput;
+        }
+
+        if(GameManager.Instance != null)
+        {
+            
+        }
     }
 
     void OnDisable()
     {
-        GameInputManager.Instance.moveInput   -= HandleMoveInput;
-        GameInputManager.Instance.rotateInput -= HandleRotateInput;
-        GameInputManager.Instance.crouchInput -= HandleCrouchInput;
+        if (GameInputManager.Instance != null)
+        {
+            GameInputManager.Instance.moveInput -= HandleMoveInput;
+            GameInputManager.Instance.rotateInput -= HandleRotateInput;
+            GameInputManager.Instance.crouchInput -= HandleCrouchInput;
+        }
     }
 
     void Update()
@@ -108,7 +119,7 @@ public class PlayerController : MonoBehaviour
         rotate = rotateInput;
     }
 
-    
+
     public void HandleCrouchInput(bool isPressed)
     {
         wantsCrouch = isPressed;

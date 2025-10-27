@@ -14,7 +14,10 @@ public class ItemUI : MonoBehaviour
     private void Awake()
     {
         playerItem = FindFirstObjectByType<PlayerItem>();
-        playerItem.OnInventoryChanged += Refresh;
+        if (playerItem != null)
+        {
+            playerItem.OnInventoryChanged += Refresh;
+        }
     }
 
     private void OnEnable()
@@ -22,10 +25,12 @@ public class ItemUI : MonoBehaviour
         Refresh();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         if (playerItem != null)
+        {
             playerItem.OnInventoryChanged -= Refresh;
+        }
     }
 
     private void Clear()

@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void LevelEnd(bool pass)
     {
+        PlayerAction player = FindObjectOfType<PlayerAction>();
+        player.ToggleFreeze(true);
         OnLevelEnd?.Invoke(pass);
     }
 
