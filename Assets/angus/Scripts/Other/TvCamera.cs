@@ -11,8 +11,8 @@ public class TvCamera : MonoBehaviour
     public bool useTargetForward = true;
 
     [Header("Start")]
-    public float startDelay = 0f;            // 延遲開始秒數
-    public bool autoStart = true;            // 啟動時自動執行
+    public float startDelay = 0f;
+    public bool autoStart = true;
 
     Vector3 desiredPos;
     bool running;

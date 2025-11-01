@@ -11,7 +11,7 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
         player.GetComponent<PlayerItem>().AddItem(this.itemData);
         if(hintData != null)
         {
-            HintManager.Instance.ShowHint(this.hintData);
+            HintUI.Instance.ShowHint(this.hintData);
         }
         this.gameObject.SetActive(false);
     }

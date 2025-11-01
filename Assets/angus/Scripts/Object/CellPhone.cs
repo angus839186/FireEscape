@@ -25,7 +25,7 @@ public class CellPhone : InteractableItem
     {
         if (hint != null)
         {
-            HintManager.Instance.ShowHint(hint);
+            HintUI.Instance.ShowHint(hint);
         }
         phoneSound.Stop();
         bedroomDoor.locked = false;

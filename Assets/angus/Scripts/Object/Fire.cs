@@ -8,11 +8,6 @@ public class Fire : InteractableItem
     public AudioSource FireSound;
     public override void Interact(PlayerInteraction player)
     {
-        if (!canInteract)
-        {
-            HintManager.Instance.ShowHint(hint);
-            return;   
-        }
         if (CheckRequirements(player, out var inv))
         {
             if (player.TryGetComponent<PlayerAction>(out var playerAction))
@@ -20,6 +15,10 @@ public class Fire : InteractableItem
                 playerAction.ExtinguishFire();
             }
             StartCoroutine(PutOutFire());
+        }
+        else
+        {
+            HintUI.Instance.ShowHint(hint);
         }
 
     }

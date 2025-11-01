@@ -24,7 +24,7 @@ public class DoorTrigger : InteractableItem
     {
         if (locked)
         {
-            HintManager.Instance.ShowHint(hint);
+            player.GetComponent<PlayerTalk>().Talk(dialogue);
         }
         else
         {

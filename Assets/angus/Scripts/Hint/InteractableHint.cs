@@ -12,7 +12,7 @@ public class InteractableHint : InteractableItem
     {
         if (TriggerOnce)
         {
-            HintManager.Instance.ShowHint(hint);
+            HintUI.Instance.ShowHint(hint);
             TriggerOnce = false;
         }
     }

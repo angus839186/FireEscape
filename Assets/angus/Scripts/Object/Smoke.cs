@@ -8,16 +8,14 @@ public class Smoke : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         var playerAct = other.GetComponent<PlayerAction>();
-        if(playerAct != null)
+        var playerState = other.GetComponent<PlayerController>();
+        if (!playerAct.usingRag || !playerState.wantsCrouch)
         {
-            if(playerAct.usingRag == false)
+            var player = playerAct.GetComponent<PlayerHealth>();
+            if (player != null)
             {
-                var player = playerAct.GetComponent<PlayerHealth>();
-                if(player != null)
-                {
-                    player.TakeDamage(1);
-                    HintManager.Instance.ShowHint(hintData);
-                }
+                player.TakeDamage(1);
+                HintUI.Instance.ShowHint(hintData);
             }
         }
     }

@@ -20,7 +20,7 @@ public class Barricade : InteractableItem
             }
             else
             {
-                HintManager.Instance.ShowHint(hint);
+                HintUI.Instance.ShowHint(hint);
             }
 
         }

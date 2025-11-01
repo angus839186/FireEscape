@@ -49,7 +49,7 @@ public class PlayerSpawner : MonoBehaviour
         Quaternion rot = Quaternion.Euler(SpawnEuler);
         Instantiate(PlayerPrefab, SpawnPosition, rot);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         if (!SceneManager.GetSceneByName("UI").isLoaded)
         {
             SceneManager.LoadScene("UI", LoadSceneMode.Additive);

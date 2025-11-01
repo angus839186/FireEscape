@@ -2,12 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HintManager : MonoBehaviour
+public class HintUI : MonoBehaviour
 {
-    public static HintManager Instance;
+    public static HintUI Instance;
 
     [Header("UI")]
-    public GameObject HintUI;
+    public GameObject HintCanvas;
     public Text hintText;
 
     [Header("Timing")]
@@ -28,7 +28,7 @@ public class HintManager : MonoBehaviour
             return;
         }
 
-        if (HintUI != null) HintUI.SetActive(false);
+        if (HintCanvas != null) HintCanvas.SetActive(false);
     }
 
 
@@ -51,12 +51,12 @@ public class HintManager : MonoBehaviour
             currentCoroutine = null;
         }
 
-        HintUI.SetActive(false);
+        HintCanvas.SetActive(false);
     }
 
     private IEnumerator HintRoutine(string[] lines)
     {
-        HintUI.SetActive(true);
+        HintCanvas.SetActive(true);
 
         for (int i = 0; i < lines.Length; i++)
         {
@@ -65,7 +65,7 @@ public class HintManager : MonoBehaviour
             yield return new WaitForSeconds(nextHintDelayTime);
         }
 
-        HintUI.SetActive(false);
+        HintCanvas.SetActive(false);
         currentCoroutine = null;
     }
 

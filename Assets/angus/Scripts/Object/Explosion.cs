@@ -19,7 +19,7 @@ public class Explosion : MonoBehaviour
                 audioSource.Play();
             }
             _explosion.Play();
-            HintManager.Instance.ShowHint(hintData);
+            HintUI.Instance.ShowHint(hintData);
             Fire.SetActive(true);
             TriggerOnce = false;
         }
