@@ -16,6 +16,7 @@ public class PlayerAction : MonoBehaviour
 
     [Header("消防斧")]
     public GameObject fireAxe;
+    public AudioClip fireAxeSfx;
 
     public Animator fireAxeAnimator;
     public float fireAxeDelayTime;
@@ -80,6 +81,7 @@ public class PlayerAction : MonoBehaviour
         ToggleFreeze(true);
         fireAxe.SetActive(true);
         fireAxeAnimator.SetTrigger("use");
+        AudioManager.Instance.PlaySound(fireAxeSfx);
         yield return new WaitForSeconds(fireAxeDelayTime);
         fireAxe.SetActive(false);
         ToggleFreeze(false);

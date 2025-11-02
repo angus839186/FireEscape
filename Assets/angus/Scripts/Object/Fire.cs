@@ -1,13 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fire : InteractableItem
 {
     public ParticleSystem FireFX;
     public AudioSource FireSound;
+
     public override void Interact(PlayerInteraction player)
     {
+        if (!canInteract) return;
         if (CheckRequirements(player, out var inv))
         {
             if (player.TryGetComponent<PlayerAction>(out var playerAction))
@@ -20,23 +21,24 @@ public class Fire : InteractableItem
         {
             HintUI.Instance.ShowHint(hint);
         }
-
     }
 
     void OnTriggerStay(Collider other)
     {
-        var player = other.GetComponent<PlayerHealth>();
-        if (player != null)
+        var hp = other.GetComponent<PlayerHealth>();
+        if (hp != null)
         {
-            Debug.Log("被火燙到了");
-            player.TakeDamage(1);
+
+            hp.TakeDamage(1, DamageType.Fire);
         }
     }
+
     IEnumerator PutOutFire()
     {
         yield return new WaitForSeconds(3f);
-        FireFX.Stop();
-        FireSound.Stop();
-        GetComponent<BoxCollider>().enabled = false;
+        if (FireFX != null) FireFX.Stop();
+        if (FireSound != null) FireSound.Stop();
+        var col = GetComponent<BoxCollider>();
+        if (col != null) col.enabled = false;
     }
 }

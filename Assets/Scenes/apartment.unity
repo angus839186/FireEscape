@@ -35906,6 +35906,8 @@ MonoBehaviour:
   turnSpeed: 180
   originRotation: {x: 0, y: 0, z: 0, w: 0}
   opened: 0
+  lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
+  openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
 --- !u!1 &389833932
 GameObject:
   m_ObjectHideFlags: 0
@@ -45747,6 +45749,7 @@ MonoBehaviour:
   canInteract: 1
   hp: 3
   destroyDelayTime: 2.5
+  breakClip: {fileID: 8300000, guid: 78267fa7480e54f40bf606b91ef78741, type: 3}
 --- !u!1 &411063724
 GameObject:
   m_ObjectHideFlags: 0
@@ -46211,7 +46214,7 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 0}
-  canInteract: 0
+  canInteract: 1
   FireFX: {fileID: 7068869}
   FireSound: {fileID: 7068867}
 --- !u!65 &520027812
@@ -66134,6 +66137,8 @@ MonoBehaviour:
   turnSpeed: 180
   originRotation: {x: 0, y: 0, z: 0, w: 0}
   opened: 0
+  lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
+  openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
 --- !u!4 &717330168
 Transform:
   m_ObjectHideFlags: 0
@@ -66690,7 +66695,7 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 0}
-  canInteract: 0
+  canInteract: 1
   FireFX: {fileID: 1729131693}
   FireSound: {fileID: 1729131691}
 --- !u!65 &765068500
@@ -67092,6 +67097,8 @@ MonoBehaviour:
   turnSpeed: 180
   originRotation: {x: 0, y: 0, z: 0, w: 0}
   opened: 0
+  lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
+  openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
 --- !u!1 &834963064
 GameObject:
   m_ObjectHideFlags: 0
@@ -122102,6 +122109,7 @@ MonoBehaviour:
   hint: {fileID: 0}
   dialogue: {fileID: 0}
   canInteract: 1
+  waterClip: {fileID: 8300000, guid: db6348db4be3c67469e9f17076811f28, type: 3}
 --- !u!1 &1182008640
 GameObject:
   m_ObjectHideFlags: 0
@@ -151785,13 +151793,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428853720}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20406891, y: 0, z: 0, w: 0.9789566}
+  m_LocalRotation: {x: 0.30504882, y: -0, z: -0, w: 0.9523367}
   m_LocalPosition: {x: 0, y: -0.09, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8880050696969089442}
-  m_LocalEulerAnglesHint: {x: 23.55, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.522, y: 0, z: 0}
 --- !u!114 &1428853722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177090,7 +177098,7 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 0}
-  canInteract: 0
+  canInteract: 1
   FireFX: {fileID: 1466012044}
   FireSound: {fileID: 1466012042}
 --- !u!65 &1705254931
@@ -212297,6 +212305,8 @@ MonoBehaviour:
   turnSpeed: 180
   originRotation: {x: 0, y: 0, z: 0, w: 0}
   opened: 0
+  lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
+  openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
 --- !u!65 &2111987002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -270800,8 +270810,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 448c462aa5bb6714694b16d6975d024d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

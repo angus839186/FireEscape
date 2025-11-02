@@ -13,6 +13,8 @@ public class HintUI : MonoBehaviour
     [Header("Timing")]
     public float nextHintDelayTime;
 
+    public AudioClip hintClip;
+
     private Coroutine currentCoroutine;
 
     private void Awake()
@@ -57,6 +59,7 @@ public class HintUI : MonoBehaviour
     private IEnumerator HintRoutine(string[] lines)
     {
         HintCanvas.SetActive(true);
+        AudioManager.Instance.PlaySound(hintClip);
 
         for (int i = 0; i < lines.Length; i++)
         {

@@ -13,6 +13,9 @@ public class DoorTrigger : InteractableItem
     [SerializeField] private Quaternion originRotation;
     [SerializeField] private bool opened;
 
+    public AudioClip lockedDoorClip;
+    public AudioClip openDoorClip;
+
     private Coroutine rotateCR;
 
     void Awake()
@@ -25,10 +28,12 @@ public class DoorTrigger : InteractableItem
         if (locked)
         {
             player.GetComponent<PlayerTalk>().Talk(dialogue);
+            AudioManager.Instance.PlaySound(lockedDoorClip);
         }
         else
         {
             ToggleDoor(player.transform);
+            AudioManager.Instance.PlaySound(openDoorClip);
         }
     }
 

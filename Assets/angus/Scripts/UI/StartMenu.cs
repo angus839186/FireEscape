@@ -5,8 +5,10 @@ using UnityEngine;
 public class StartMenu : MonoBehaviour
 {
     public GameObject LevelSelectMenu;
+    public GameObject GameMenu;
     public void OpenLevelSelectUI()
     {
+        GameMenu.SetActive(false);
         LevelSelectMenu.SetActive(true);
     }
 

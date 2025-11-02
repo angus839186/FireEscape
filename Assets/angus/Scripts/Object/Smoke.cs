@@ -1,20 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Smoke : MonoBehaviour
 {
     public Hint hintData;
+
     void OnTriggerStay(Collider other)
     {
         var playerAct = other.GetComponent<PlayerAction>();
         var playerState = other.GetComponent<PlayerController>();
-        if (!playerAct.usingRag || !playerState.wantsCrouch)
+        var hp = other.GetComponent<PlayerHealth>();
+
+        if (!hp.hurting)
         {
-            var player = playerAct.GetComponent<PlayerHealth>();
-            if (player != null)
+            bool usingRag = playerAct.usingRag;
+            bool crouching = playerState.wantsCrouch;
+
+            if (!usingRag || !crouching)
             {
-                player.TakeDamage(1);
+                hp.TakeDamage(1, DamageType.Smoke);
                 HintUI.Instance.ShowHint(hintData);
             }
         }

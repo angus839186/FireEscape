@@ -10,10 +10,10 @@ public class InteractableHint : InteractableItem
 
     public override void Interact(PlayerInteraction player)
     {
+        HintUI.Instance.ShowHint(hint);
         if (TriggerOnce)
         {
-            HintUI.Instance.ShowHint(hint);
-            TriggerOnce = false;
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

@@ -5847,6 +5847,8 @@ MonoBehaviour:
   currentHealth: 0
   hurting: 0
   delayTime: 2.5
+  GetFireClip: {fileID: 8300000, guid: 9c361dc99cff1264ba535ebb73466b59, type: 3}
+  chokeClip: {fileID: 8300000, guid: d8a0130caf9aa1c4f8c0871ce9693cce, type: 3}
 --- !u!114 &6364717051592785221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5864,6 +5866,7 @@ MonoBehaviour:
   Extinguisher: {fileID: 4914405073291439126}
   extinguishingDelayTime: 3
   fireAxe: {fileID: 879813586235831812}
+  fireAxeSfx: {fileID: 8300000, guid: 9206fe74a1dd53e48a2814526ef9136c, type: 3}
   fireAxeAnimator: {fileID: 553382787866359609}
   fireAxeDelayTime: 1.5
   rag: {fileID: 938591768991978429}

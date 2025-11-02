@@ -7,11 +7,13 @@ using UnityEngine.Video;
 public class LevelSelectUI : MonoBehaviour
 {
     public GameObject LevelSelectMenu;
+    public GameObject GameMenu;
 
     public LevelData[] levels;
 
     public void CloseLevelSelectUI()
     {
+        GameMenu.SetActive(true);
         LevelSelectMenu.SetActive(false);
     }
 

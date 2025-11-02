@@ -93,7 +93,6 @@ public class DialogueUI : MonoBehaviour
                 targetAlpha,
                 transitionSpeed * Time.deltaTime
             );
-            Debug.Log(transitionCanvas.alpha);
             yield return null;
         }
 

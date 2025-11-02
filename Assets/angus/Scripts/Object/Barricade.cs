@@ -6,6 +6,7 @@ public class Barricade : InteractableItem
 {
     public int hp;
     public float destroyDelayTime;
+    public AudioClip breakClip;
     public override void Interact(PlayerInteraction player)
     {
         if (canInteract)
@@ -22,7 +23,6 @@ public class Barricade : InteractableItem
             {
                 HintUI.Instance.ShowHint(hint);
             }
-
         }
     }
     IEnumerator BarricadeCoroutine()
@@ -31,6 +31,7 @@ public class Barricade : InteractableItem
         hp--;
         if (hp == 0)
         {
+            AudioManager.Instance.PlaySound(breakClip);
             Destroy(gameObject);
             yield break;
         }
