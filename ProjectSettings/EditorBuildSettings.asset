@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UI.unity
     guid: de3298bdae137844ab2c705b330afee6
   - enabled: 1
-    path: Assets/Scenes/material.unity
+    path: Assets/Scenes/metal.unity
     guid: 9fe789307c959b540b0494ee526474d9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: e479933d094c22c438a9b3dfec25cac2, type: 3}
