@@ -5752,7 +5752,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 4
+  m_Height: 3.5
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 1.2
@@ -5779,7 +5779,7 @@ MonoBehaviour:
   interacting: 0
   gravity: -9.81
   verticalVelocity: 0
-  standingHeight: 4
+  standingHeight: 3.5
   crouchHeight: 2
   cameraRoot: {fileID: 1454253380939729044}
   eyeHeightRatio: 0.9
