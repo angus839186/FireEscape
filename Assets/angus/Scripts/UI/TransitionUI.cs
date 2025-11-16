@@ -6,18 +6,25 @@ public class TransitionUI : MonoBehaviour
     public CanvasGroup transitionCanvas;
     public float transitionSpeed = 2f;
 
-    private Bed _bed;
+    private TransitionTrigger _bed;
     private Coroutine _running;
 
     void Awake()
     {
-        _bed = FindFirstObjectByType<Bed>();
-        if (_bed != null) _bed.playerSleep += TransitionImage;
+        TransitionTrigger transitionTrigger = FindFirstObjectByType<TransitionTrigger>();
+        if(transitionTrigger!= null)
+        {
+            transitionTrigger.OnTransition += TransitionImage;
+        }
     }
 
     void OnDestroy()
     {
-        if (_bed != null) _bed.playerSleep -= TransitionImage;
+        TransitionTrigger transitionTrigger = FindFirstObjectByType<TransitionTrigger>();
+        if(transitionTrigger!= null)
+        {
+            transitionTrigger.OnTransition -= TransitionImage;
+        }
     }
 
     public void TransitionImage(bool toggle)
