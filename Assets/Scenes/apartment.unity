@@ -327832,7 +327832,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   canInteract: 1
   phoneSound: {fileID: 919132149028989386}
-  bedroomDoor: {fileID: 386221180}
+  Door: {fileID: 386221180}
 --- !u!1 &919132149544666237
 GameObject:
   m_ObjectHideFlags: 0

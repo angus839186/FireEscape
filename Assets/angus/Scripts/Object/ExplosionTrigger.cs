@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class ExplosionTrigger : MonoBehaviour
 {
     public Hint hintData;
     public ParticleSystem _explosion;
@@ -19,7 +19,10 @@ public class Explosion : MonoBehaviour
                 audioSource.Play();
             }
             _explosion.Play();
-            HintUI.Instance.ShowHint(hintData);
+            if(hintData != null)
+            {
+                HintUI.Instance.ShowHint(hintData);
+            }
             Fire.SetActive(true);
             TriggerOnce = false;
         }

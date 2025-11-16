@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bed : InteractableItem
+public class TransitionTrigger : InteractableItem
 {
     public AudioSource alarmBell;
     public CellPhone cellPhone;
 
-    public event Action<bool> playerSleep;
+    public event Action<bool> OnTransition;
 
     public float wakeUpDelayTime;
     public float warningDelayTime;
@@ -17,26 +17,29 @@ public class Bed : InteractableItem
 
     public override void Interact(PlayerInteraction player)
     {
-        if(canInteract)
+        if (canInteract)
         {
-            SleepAndWakeUp(player);
+            Transition(player);
             canInteract = false;
         }
     }
 
-    public void SleepAndWakeUp(PlayerInteraction player)
+    public void Transition(PlayerInteraction player)
     {
-        StartCoroutine(SleepAndWakeUpCoroutine(player));
+        StartCoroutine(TransitionCoroutine(player));
     }
-    
-    IEnumerator SleepAndWakeUpCoroutine(PlayerInteraction player)
+
+    IEnumerator TransitionCoroutine(PlayerInteraction player)
     {
-        playerSleep?.Invoke(true);
+        OnTransition?.Invoke(true);
         player.GetComponent<PlayerAction>().ToggleFreeze(true);
         yield return new WaitForSeconds(warningDelayTime);
-        alarmBell.Play();
+        if (alarmBell != null)
+        {
+            alarmBell.Play();
+        }
         yield return new WaitForSeconds(wakeUpDelayTime);
-        playerSleep?.Invoke(false);
+        OnTransition?.Invoke(false);
         cellPhone.StartRing();
         player.GetComponent<PlayerAction>().ToggleFreeze(false);
     }

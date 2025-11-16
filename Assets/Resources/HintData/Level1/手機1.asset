@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ba0be460ed7d4347b398d5d706705ce, type: 3}
-  m_Name: "\u624B\u6A5F"
+  m_Name: "\u624B\u6A5F1"
   m_EditorClassIdentifier: 
   hintText:
   - "\u4F60\u597D\uFF0C\u9019\u88E1\u662F\u6D88\u9632\u968A\uFF0C\u76EE\u524D\u9019\u68DF\u516C\u5BD3\u5DF2\u7D93\u767C\u751F\u706B\u707D\u4E86"
