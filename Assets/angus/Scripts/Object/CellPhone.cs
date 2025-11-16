@@ -7,7 +7,11 @@ public class CellPhone : InteractableItem
 {
     public AudioSource phoneSound;
 
-    public DoorTrigger bedroomDoor;
+    public DoorTrigger Door;
+
+    public GameObject airCollider;
+
+    public Light alarmLight;
     public override void Interact(PlayerInteraction player)
     {
         if (canInteract)
@@ -28,7 +32,18 @@ public class CellPhone : InteractableItem
             HintUI.Instance.ShowHint(hint);
         }
         phoneSound.Stop();
-        bedroomDoor.locked = false;
+        if (Door != null)
+        {
+            Door.locked = false;
+        }
+        if (airCollider != null)
+        {
+            airCollider.SetActive(false);
+        }
+        if(alarmLight != null)
+        {
+            alarmLight.enabled = true;
+        }
         canInteract = false;
     }
 }
