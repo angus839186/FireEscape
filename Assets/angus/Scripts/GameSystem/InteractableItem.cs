@@ -17,10 +17,11 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
         if (player == null) return false;
         if (!player.TryGetComponent(out playerItem)) return false;
 
-
         if (!playerItem.HasItem(requiredItem))
             return false;
         return true;
     }
+
     public abstract void Interact(PlayerInteraction player);
 }
+

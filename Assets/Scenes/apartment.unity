@@ -56471,7 +56471,7 @@ GameObject:
   - component: {fileID: 493938135}
   - component: {fileID: 493938136}
   m_Layer: 0
-  m_Name: "\u7D50\u675F\u89F8\u767C"
+  m_Name: "\u7D50\u675F\u89F8\u767C\u5668"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257463,6 +257463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintData: {fileID: 0}
   itemData: {fileID: 11400000, guid: 585f73afac97c9e4189470e14a8baebb, type: 2}
+  canPickUp: 1
 --- !u!1 &1921005639
 GameObject:
   m_ObjectHideFlags: 0
@@ -327833,6 +327834,8 @@ MonoBehaviour:
   canInteract: 1
   phoneSound: {fileID: 919132149028989386}
   Door: {fileID: 386221180}
+  alarmLight: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &919132149544666237
 GameObject:
   m_ObjectHideFlags: 0
@@ -330973,6 +330976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintData: {fileID: 11400000, guid: ac3abd13f1f1f794ea2ef35b04c1c41e, type: 2}
   itemData: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  canPickUp: 1
 --- !u!4 &4543052492178495489
 Transform:
   m_ObjectHideFlags: 0
@@ -332652,6 +332656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintData: {fileID: 11400000, guid: 97fd382c6f84192479b18aaf0e15e0c7, type: 2}
   itemData: {fileID: 11400000, guid: 4bb195448a384f4409c478adac7263c8, type: 2}
+  canPickUp: 1
 --- !u!1 &6963211534283483879
 GameObject:
   m_ObjectHideFlags: 0

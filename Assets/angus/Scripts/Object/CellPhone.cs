@@ -9,9 +9,9 @@ public class CellPhone : InteractableItem
 
     public DoorTrigger Door;
 
-    public GameObject airCollider;
-
     public Light alarmLight;
+
+    public UsableItem item;
     public override void Interact(PlayerInteraction player)
     {
         if (canInteract)
@@ -36,13 +36,13 @@ public class CellPhone : InteractableItem
         {
             Door.locked = false;
         }
-        if (airCollider != null)
-        {
-            airCollider.SetActive(false);
-        }
         if(alarmLight != null)
         {
             alarmLight.enabled = true;
+        }
+        if(item != null)
+        {
+            item.canPickUp = true;
         }
         canInteract = false;
     }

@@ -13,7 +13,10 @@ public class DialogueTrigger : MonoBehaviour
         var player = other.GetComponent<PlayerTalk>();
         if (player != null)
         {
-            player.Talk(dialogue);
+            if (dialogue != null)
+            {
+                player.Talk(dialogue);
+            }
             if (triggerOnce)
             {
                 GetComponent<BoxCollider>().enabled = false;

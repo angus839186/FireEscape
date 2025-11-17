@@ -27,7 +27,10 @@ public class DoorTrigger : InteractableItem
     {
         if (locked)
         {
-            player.GetComponent<PlayerTalk>().Talk(dialogue);
+            if (dialogue != null)
+            {
+                player.GetComponent<PlayerTalk>().Talk(dialogue);
+            }
             AudioManager.Instance.PlaySound(lockedDoorClip);
         }
         else
@@ -61,7 +64,7 @@ public class DoorTrigger : InteractableItem
         }
         GetComponent<BoxCollider>().enabled = false;
 
-        
+
         while (Quaternion.Angle(HingeTransform.rotation, target) > 0.1f)
         {
             HingeTransform.rotation = Quaternion.RotateTowards(

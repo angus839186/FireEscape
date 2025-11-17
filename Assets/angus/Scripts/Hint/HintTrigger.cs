@@ -12,10 +12,11 @@ public class HintTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            HintUI.Instance.ShowHint(hint);
+            TriggerOnce = false;
             if (TriggerOnce)
             {
-                HintUI.Instance.ShowHint(hint);
-                TriggerOnce = false;
+                GetComponent<BoxCollider>().enabled = false;
             }
         }
     }
