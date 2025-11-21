@@ -9,6 +9,8 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
 
     public Hint hint;
     public DialogueData dialogue;
+
+    public GameObject airCollider;
     public bool canInteract;
 
     protected bool CheckRequirements(PlayerInteraction player, out PlayerItem playerItem)

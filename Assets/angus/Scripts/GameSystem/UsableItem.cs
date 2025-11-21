@@ -7,9 +7,9 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
     public Hint hintData;
     public ItemData itemData;
 
-    public bool canPickUp = true;
+    public GameObject airCollider;
 
-    public event Action OnItemPicked;
+    public bool canPickUp = true;
 
     public virtual void Interact(PlayerInteraction player)
     {
@@ -20,8 +20,11 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
             {
                 HintUI.Instance.ShowHint(this.hintData);
             }
+            if(airCollider!= null)
+            {
+                airCollider.SetActive(false);
+            }
             this.gameObject.SetActive(false);
-            OnItemPicked?.Invoke();
         }
     }
 }
