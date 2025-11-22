@@ -76554,6 +76554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0499eba2a5f8441a7b17a9eeb37c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.9411765, g: 0.84313726, b: 0.16862746, a: 1}
+  emissionIntensity: 0.3
   hintData: {fileID: 11400000, guid: ac3abd13f1f1f794ea2ef35b04c1c41e, type: 2}
   itemData: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   airCollider: {fileID: 1439196515}
@@ -82102,6 +82104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93368389cc04812419702c7ba15fcb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 11400000, guid: cf506515b203ba1479af712b8660a3b5, type: 2}
@@ -97337,6 +97341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 11400000, guid: 1950af3482f9efd46bb462cf82ffc128, type: 2}
@@ -152559,6 +152565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 11400000, guid: 1950af3482f9efd46bb462cf82ffc128, type: 2}
@@ -188163,6 +188171,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941409457}
   m_Mesh: {fileID: 1880405674881892065, guid: da17b65fa4ac4d643baeeb2480b9f9d1, type: 3}
+--- !u!1 &968417607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 968417609}
+  - component: {fileID: 968417608}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &968417608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968417607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 0ed18d6e04e98cc4b802ec45b1fff19b, type: 2}
+--- !u!4 &968417609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968417607}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.438534, y: 12.928641, z: 81.846924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &970982863
 GameObject:
   m_ObjectHideFlags: 0
@@ -208398,6 +208455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafb6afabc35435448597bde0dcae4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
@@ -228895,6 +228954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 11400000, guid: 9d7db4d70ee229641abb5530d4916415, type: 2}
   dialogue: {fileID: 0}
@@ -265763,6 +265824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 11400000, guid: 1950af3482f9efd46bb462cf82ffc128, type: 2}
@@ -311228,6 +311291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 11400000, guid: 9d7db4d70ee229641abb5530d4916415, type: 2}
   dialogue: {fileID: 0}
@@ -311304,6 +311369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 11400000, guid: 9d7db4d70ee229641abb5530d4916415, type: 2}
   dialogue: {fileID: 0}
@@ -356133,6 +356200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fd1cc463f068b408463289ebea9d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.93962264, g: 0.84234095, b: 0.16842282, a: 1}
+  emissionIntensity: 0.3
   requiredItem: {fileID: 0}
   hint: {fileID: 11400000, guid: 2412078a88929334b817dfd41da2280a, type: 2}
   dialogue: {fileID: 0}
@@ -361649,6 +361718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6230b9f5fad00e4097e57a170fc8962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.9411765, g: 0.84313726, b: 0.16862746, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 11400000, guid: d70009525b3b63e44b34c44af3b7a896, type: 2}
   dialogue: {fileID: 0}
@@ -380605,3 +380676,4 @@ SceneRoots:
   - {fileID: 181102649}
   - {fileID: 1970772200}
   - {fileID: 483148260}
+  - {fileID: 968417609}
