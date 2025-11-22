@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CellPhone : InteractableItem
 {
+    [Space]
     public AudioSource phoneSound;
 
     public DoorTrigger Door;
@@ -23,6 +24,7 @@ public class CellPhone : InteractableItem
     {
         phoneSound.Play();
         canInteract = true;
+        this.HightLight(true);
     }
 
     public void GetCall()
@@ -31,18 +33,25 @@ public class CellPhone : InteractableItem
         {
             HintUI.Instance.ShowHint(hint);
         }
+
         phoneSound.Stop();
+
         if (Door != null)
         {
             Door.locked = false;
         }
-        if(alarmLight != null)
+
+        if (alarmLight != null)
         {
             alarmLight.enabled = true;
         }
-        if(item != null)
+
+        this.HightLight(false);
+
+        if (item != null)
         {
             item.canPickUp = true;
+            item.HightLight(true);
         }
         canInteract = false;
     }
