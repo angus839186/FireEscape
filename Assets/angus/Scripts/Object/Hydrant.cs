@@ -17,5 +17,6 @@ public class Hydrant : InteractableItem
         {
             playerAct.ToggleNozzle(false);
         }
+        this.HighLight(false);
     }
 }

@@ -7,15 +7,13 @@ public class GuideLine : MonoBehaviour
     public Transform player;
     public Transform target;
 
-    [Header("顯示設定")]
-    public float yOffset = 0.1f;
-    public bool flattenToGround = false;
-
-
+    [Header("地板設定")]
+    public LayerMask groundMask;          // 指定地板的 Layer
+    public float raycastHeight = 2f;      // 往下打 Ray 的起點高度（相對 target）
+    public float groundYOffset = 0.05f;   // 讓線稍微浮在地面上
 
     [Header("箭頭貼圖設定")]
     public float arrowWorldLength = 0.5f;
-
     public float minRepeatCount = 1f;
     public float scrollSpeed = 1f;
 
@@ -26,7 +24,6 @@ public class GuideLine : MonoBehaviour
     void Awake()
     {
         line = GetComponent<LineRenderer>();
-
 
         if (line.material != null)
         {
@@ -44,34 +41,40 @@ public class GuideLine : MonoBehaviour
             return;
         }
 
-        line.enabled = true;
+        // --------- 計算 start / end 在地面上的位置 ---------
+        Vector3 start = player.position;          // 你說這個不用額外計算
+        Vector3 targetWorldPos = target.position; // 物件實際位置（可能在桌上）
 
-        Vector3 start = player.position;
-        Vector3 end = target.position;
+        // 從 target 上方往下打 Ray 找地板
+        Vector3 rayOrigin = targetWorldPos + Vector3.up * raycastHeight;
+        Vector3 endOnGround = targetWorldPos;
 
-        if (flattenToGround)
+        if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastHeight * 3f, groundMask))
         {
-            start.y = 0f;
-            end.y = 0f;
+            endOnGround = hit.point;
         }
 
-        start.y += yOffset;
-        end.y += yOffset;
+        // 讓線「貼在地面上」：把 start / end 的 y 都拉到同一個地板高度
+        float groundY = endOnGround.y + groundYOffset;
+        start.y = groundY;
+        endOnGround.y = groundY;
 
+        // --------- 畫線 ---------
+        line.enabled = true;
         line.positionCount = 2;
-        line.SetPosition(0, start);
-        line.SetPosition(1, end);
+        line.SetPosition(0, start);       // 起點：玩家在地面上的位置
+        line.SetPosition(1, endOnGround); // 終點：Target 在地面上的投影位置
 
+        // --------- 箭頭貼圖 Tiling + 滾動 ---------
         if (lineMatInstance != null)
         {
-            float length = Vector3.Distance(start, end);
+            float length = Vector3.Distance(start, endOnGround);
 
             float repeatCount = Mathf.Max(minRepeatCount, length / arrowWorldLength);
             Vector2 tiling = baseTiling;
             tiling.x = repeatCount;
             lineMatInstance.mainTextureScale = tiling;
 
-            // 捲動貼圖，製造箭頭往 Target 流動的感覺
             Vector2 offset = lineMatInstance.mainTextureOffset;
             offset.x -= scrollSpeed * Time.deltaTime;
             lineMatInstance.mainTextureOffset = offset;

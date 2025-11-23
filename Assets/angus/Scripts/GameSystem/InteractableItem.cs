@@ -24,6 +24,9 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
     public DialogueData dialogue;
 
     public GameObject airCollider;
+
+    
+    public GameObject NextHighLightObject;
     public bool canInteract;
 
     void Awake()
@@ -57,7 +60,7 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
 
     public abstract void Interact(PlayerInteraction player);
 
-    public void HightLight(bool toggle)
+    public void HighLight(bool toggle)
     {
         for (int i = 0; i < renderers.Length; i++)
         {
@@ -66,7 +69,6 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
         GuideLine guideLine = FindFirstObjectByType<GuideLine>();
         if(toggle)
         {
-            guideLine.StopGuide();
             guideLine.StartGuide(this.transform);
         }
         else

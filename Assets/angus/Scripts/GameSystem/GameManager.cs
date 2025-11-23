@@ -43,11 +43,13 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        Time.timeScale = 1f;
         sceneLoader.RestartScene();
     }
 
     public void Back()
     {
+        Time.timeScale = 1f;
         sceneLoader.BackToMenu();
     }
 }

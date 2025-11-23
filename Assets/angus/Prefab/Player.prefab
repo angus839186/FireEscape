@@ -4940,7 +4940,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 447
+    m_Bits: 959
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -15872,7 +15872,7 @@ Transform:
   m_GameObject: {fileID: 8825605830517681793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15996,8 +15996,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4818387983460539186}
   target: {fileID: 0}
-  yOffset: 10.5
-  flattenToGround: 1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  raycastHeight: 5
+  groundYOffset: 0.05
   arrowWorldLength: 10
   minRepeatCount: 1
   scrollSpeed: 1

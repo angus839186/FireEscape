@@ -30460,7 +30460,7 @@ GameObject:
   - component: {fileID: 211710616}
   - component: {fileID: 211710615}
   m_Layer: 0
-  m_Name: DialogueTrigger
+  m_Name: "\u958B\u982D\u5C0D\u8A71\u89F8\u767C\u5668"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30493,6 +30493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91f1e4ed4e492d43b052da2ed2fc9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerOnce: 1
   dialogue: {fileID: 11400000, guid: a04aa5380cb4de248ad2cdbb925493b2, type: 2}
 --- !u!65 &211710616
 BoxCollider:
@@ -41357,9 +41358,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aec07493786604392557579808e320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 11400000, guid: dd32ca412baf2804585404e094aefa03, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   locked: 1
   HingeTransform: {fileID: 386221176}
@@ -51204,9 +51209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763228439828f3b4697d323e64ff8f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.9411765, g: 0.84313726, b: 0.16862746, a: 0}
+  emissionIntensity: 0.3
   requiredItem: {fileID: 11400000, guid: 4bb195448a384f4409c478adac7263c8, type: 2}
   hint: {fileID: 11400000, guid: 4f96ff089902bf24e94c2379d0cf9362, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 6674095164081255529}
   canInteract: 1
   hp: 3
   destroyDelayTime: 2.5
@@ -56302,9 +56311,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafb6afabc35435448597bde0dcae4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   alarmBell: {fileID: 8880050696969089443}
   cellPhone: {fileID: 919132149028989387}
@@ -66291,12 +66304,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   FireFX: {fileID: 7068869}
   FireSound: {fileID: 7068867}
+  HydrantHint: {fileID: 0}
+  normalFire: 0
 --- !u!65 &520027812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86561,9 +86580,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aec07493786604392557579808e320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   locked: 0
   HingeTransform: {fileID: 683340027}
@@ -91898,6 +91921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerOnce: 1
   hint: {fileID: 11400000, guid: 02a4cdb4e1de6654fa853f028996297c, type: 2}
+  NextHighLightObject: {fileID: 0}
 --- !u!65 &753969130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91965,12 +91989,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   FireFX: {fileID: 1729131693}
   FireSound: {fileID: 1729131691}
+  HydrantHint: {fileID: 0}
+  normalFire: 0
 --- !u!65 &765068500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -92360,9 +92390,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aec07493786604392557579808e320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   locked: 1
   HingeTransform: {fileID: 775657416}
@@ -92418,12 +92452,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   FireFX: {fileID: 1650247769}
   FireSound: {fileID: 1650247767}
+  HydrantHint: {fileID: 0}
+  normalFire: 0
 --- !u!65 &831514913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152290,9 +152330,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb0e45de001ef94491712b4d7feaa5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 585f73afac97c9e4189470e14a8baebb, type: 2}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   waterClip: {fileID: 8300000, guid: db6348db4be3c67469e9f17076811f28, type: 3}
 --- !u!1 &1181315219
@@ -176950,12 +176994,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: b458cfb52c964cd4cb8eebb55a0dbb7c, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 0
   FireFX: {fileID: 1233754634}
   FireSound: {fileID: 1233754632}
+  HydrantHint: {fileID: 0}
+  normalFire: 0
 --- !u!65 &1361575339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -187027,6 +187077,59 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1450023517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450023519}
+  - component: {fileID: 1450023518}
+  m_Layer: 9
+  m_Name: 1f ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1450023518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450023517}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 46.98513, y: 1, z: 37.818474}
+  m_Center: {x: 6.8452797, y: 0, z: 10.145733}
+--- !u!4 &1450023519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450023517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -7.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1461699316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187046,6 +187149,10 @@ PrefabInstance:
     - target: {fileID: 100006, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
       propertyPath: m_LocalScale.x
@@ -197479,6 +197586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerOnce: 1
   hint: {fileID: 11400000, guid: b698a5871fa71fe46af5a6e974993d2a, type: 2}
+  NextHighLightObject: {fileID: 0}
 --- !u!65 &1546034791
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -207344,9 +207452,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f36d080704d694185f63b0c38b764a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 11400000, guid: 58d0d850732accc4e9e5cb33d146a367, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   TriggerOnce: 0
 --- !u!65 &1642153606
@@ -227013,12 +227125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
   hint: {fileID: 11400000, guid: 649f75bf281072c4f97f773eb96dc03d, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   FireFX: {fileID: 1466012044}
   FireSound: {fileID: 1466012042}
+  HydrantHint: {fileID: 0}
+  normalFire: 0
 --- !u!65 &1705254931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -257461,8 +257579,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0499eba2a5f8441a7b17a9eeb37c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.9411765, g: 0.84313726, b: 0.16862746, a: 1}
+  emissionIntensity: 0.3
   hintData: {fileID: 0}
   itemData: {fileID: 11400000, guid: 585f73afac97c9e4189470e14a8baebb, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canPickUp: 1
 --- !u!1 &1921005639
 GameObject:
@@ -262673,6 +262795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerOnce: 1
   hint: {fileID: 11400000, guid: 7ed61c70c2e1d6946ac4089312d10fb4, type: 2}
+  NextHighLightObject: {fileID: 2716737611324225193}
 --- !u!65 &2000094709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -262976,6 +263099,59 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &2097876247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097876249}
+  - component: {fileID: 2097876248}
+  m_Layer: 9
+  m_Name: 2F ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2097876248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097876247}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 46.98513, y: 1, z: 37.818474}
+  m_Center: {x: 6.8452797, y: 0, z: 10.145733}
+--- !u!4 &2097876249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097876247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110812386
 GameObject:
   m_ObjectHideFlags: 0
@@ -267854,9 +268030,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aec07493786604392557579808e320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canInteract: 1
   locked: 1
   HingeTransform: {fileID: 2111987000}
@@ -326354,6 +326534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29167e7008cc6494a83776dc2300c29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightObject: {fileID: 0}
   hintData: {fileID: 11400000, guid: b458cfb52c964cd4cb8eebb55a0dbb7c, type: 2}
   _explosion: {fileID: 198917021785124861}
   audioSource: {fileID: 199630754901308273}
@@ -327828,9 +328009,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fd1cc463f068b408463289ebea9d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.9411765, g: 0.84313726, b: 0.16862746, a: 1}
+  emissionIntensity: 2
   requiredItem: {fileID: 0}
   hint: {fileID: 11400000, guid: 0697108e25813f24b804dc3fef1d086b, type: 2}
   dialogue: {fileID: 0}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 1905090088}
   canInteract: 1
   phoneSound: {fileID: 919132149028989386}
   Door: {fileID: 386221180}
@@ -329828,7 +330013,7 @@ Transform:
   m_GameObject: {fileID: 2716737611324225193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.41, y: -7.61, z: 7.49}
+  m_LocalPosition: {x: 11.41, y: -7.455, z: 7.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -330974,8 +331159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0499eba2a5f8441a7b17a9eeb37c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.9411765, g: 0.84313726, b: 0.16862746, a: 1}
+  emissionIntensity: 0.3
   hintData: {fileID: 11400000, guid: ac3abd13f1f1f794ea2ef35b04c1c41e, type: 2}
   itemData: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canPickUp: 1
 --- !u!4 &4543052492178495489
 Transform:
@@ -332654,8 +332843,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0499eba2a5f8441a7b17a9eeb37c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0.9411765, g: 0.84313726, b: 0.16862746, a: 1}
+  emissionIntensity: 0.3
   hintData: {fileID: 11400000, guid: 97fd382c6f84192479b18aaf0e15e0c7, type: 2}
   itemData: {fileID: 11400000, guid: 4bb195448a384f4409c478adac7263c8, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
   canPickUp: 1
 --- !u!1 &6963211534283483879
 GameObject:
@@ -335011,3 +335204,5 @@ SceneRoots:
   - {fileID: 9647422}
   - {fileID: 1816561500}
   - {fileID: 460872136}
+  - {fileID: 2097876249}
+  - {fileID: 1450023519}

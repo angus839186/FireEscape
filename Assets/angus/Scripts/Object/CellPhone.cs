@@ -24,7 +24,7 @@ public class CellPhone : InteractableItem
     {
         phoneSound.Play();
         canInteract = true;
-        this.HightLight(true);
+        this.HighLight(true);
     }
 
     public void GetCall()
@@ -46,12 +46,16 @@ public class CellPhone : InteractableItem
             alarmLight.enabled = true;
         }
 
-        this.HightLight(false);
+        this.HighLight(false);
 
         if (item != null)
         {
             item.canPickUp = true;
-            item.HightLight(true);
+        }
+
+        if(NextHighLightObject!= null)
+        {
+            NextHighLightObject.GetComponent<IInteractable>().HighLight(true);
         }
         canInteract = false;
     }

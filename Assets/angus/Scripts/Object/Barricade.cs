@@ -22,6 +22,7 @@ public class Barricade : InteractableItem
             else
             {
                 HintUI.Instance.ShowHint(hint);
+                NextHighLightObject.GetComponent<IInteractable>().HighLight(true);
             }
         }
     }

@@ -16,6 +16,11 @@ public class PowerBox : InteractableItem
             {
                 player.GetComponent<PlayerTalk>().Talk(dialogue);
             }
+            this.HighLight(false);
+            if(NextHighLightObject != null)
+            {
+                NextHighLightObject.GetComponent<IInteractable>().HighLight(true);
+            }
             canInteract = false;
         }
     }

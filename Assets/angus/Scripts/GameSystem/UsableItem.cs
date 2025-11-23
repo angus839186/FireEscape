@@ -21,6 +21,8 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
 
     public GameObject airCollider;
 
+    public GameObject NextHighLightObject;
+
     public bool canPickUp = true;
 
     void Awake()
@@ -41,7 +43,7 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
         }
     }
 
-    public void HightLight(bool toggle)
+    public void HighLight(bool toggle)
     {
         for (int i = 0; i < renderers.Length; i++)
         {
@@ -50,7 +52,6 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
         GuideLine guideLine = FindFirstObjectByType<GuideLine>();
         if (toggle)
         {
-            guideLine.StopGuide();
             guideLine.StartGuide(this.transform);
         }
         else
@@ -72,10 +73,10 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
             {
                 airCollider.SetActive(false);
             }
-            GuideLine guideLine = FindFirstObjectByType<GuideLine>();
-            if(guideLine.target == this.transform)
+            this.HighLight(false);
+            if(NextHighLightObject != null)
             {
-                this.HightLight(false);
+                NextHighLightObject.GetComponent<IInteractable>().HighLight(true);
             }
             this.gameObject.SetActive(false);
         }
