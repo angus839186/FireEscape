@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class CellPhone : InteractableItem
 {
+    [Space]
     public AudioSource phoneSound;
 
     public DoorTrigger Door;
 
-    public GameObject airCollider;
-
     public Light alarmLight;
+
+    public UsableItem item;
     public override void Interact(PlayerInteraction player)
     {
         if (canInteract)
@@ -23,6 +24,7 @@ public class CellPhone : InteractableItem
     {
         phoneSound.Play();
         canInteract = true;
+        this.HighLight(true);
     }
 
     public void GetCall()
@@ -31,18 +33,29 @@ public class CellPhone : InteractableItem
         {
             HintUI.Instance.ShowHint(hint);
         }
+
         phoneSound.Stop();
+
         if (Door != null)
         {
             Door.locked = false;
         }
-        if (airCollider != null)
-        {
-            airCollider.SetActive(false);
-        }
-        if(alarmLight != null)
+
+        if (alarmLight != null)
         {
             alarmLight.enabled = true;
+        }
+
+        this.HighLight(false);
+
+        if (item != null)
+        {
+            item.canPickUp = true;
+        }
+
+        if(NextHighLightObject!= null)
+        {
+            NextHighLightObject.GetComponent<IInteractable>().HighLight(true);
         }
         canInteract = false;
     }

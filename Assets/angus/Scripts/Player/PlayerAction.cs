@@ -28,6 +28,16 @@ public class PlayerAction : MonoBehaviour
     public bool usingRag;
     public Animator ragAnimator;
 
+    [Header("消防栓噴嘴")]
+    public GameObject nozzle;
+    public AudioSource waterSFX;
+    public ParticleSystem waterFX;
+
+    public float nozzleSplashTime;
+
+    public bool holdNozzle;
+
+
 
 
     void Awake()
@@ -40,7 +50,7 @@ public class PlayerAction : MonoBehaviour
         GameInputManager.Instance.useItemInput -= useRag;
     }
 
-    public void ExtinguishFire()
+    public void Extinguish()
     {
         StartCoroutine(ExtinguishFireRoutine());
     }
@@ -85,5 +95,30 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(fireAxeDelayTime);
         fireAxe.SetActive(false);
         ToggleFreeze(false);
+    }
+
+    public void HydrantNozzle()
+    {
+        if (holdNozzle)
+        {
+            StartCoroutine(HydrantNozzleCoroutine());
+        }
+    }
+
+    IEnumerator HydrantNozzleCoroutine()
+    {
+        ToggleFreeze(true);
+        waterFX.Play();
+        waterSFX.Play();
+        yield return new WaitForSeconds(nozzleSplashTime);
+        waterFX.Stop();
+        waterSFX.Stop();
+        ToggleFreeze(false);
+    }
+
+    public void ToggleNozzle(bool toggle)
+    {
+        nozzle.gameObject.SetActive(toggle);
+        holdNozzle = toggle;
     }
 }

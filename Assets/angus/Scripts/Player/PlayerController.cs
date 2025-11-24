@@ -73,11 +73,6 @@ public class PlayerController : MonoBehaviour
             GameInputManager.Instance.rotateInput += HandleRotateInput;
             GameInputManager.Instance.crouchInput += HandleCrouchInput;
         }
-
-        if(GameManager.Instance != null)
-        {
-            
-        }
     }
 
     void OnDisable()

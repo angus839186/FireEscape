@@ -6,20 +6,46 @@ public class Fire : InteractableItem
     public ParticleSystem FireFX;
     public AudioSource FireSound;
 
+    public Hint HydrantHint;
+
+    public bool normalFire;
+
     public override void Interact(PlayerInteraction player)
     {
-        if (!canInteract) return;
-        if (CheckRequirements(player, out var inv))
+        if (!canInteract)
         {
-            if (player.TryGetComponent<PlayerAction>(out var playerAction))
+            if (dialogue != null)
             {
-                playerAction.ExtinguishFire();
+                PlayerTalk playerTalk = FindFirstObjectByType<PlayerTalk>();
+                playerTalk.Talk(dialogue);
             }
-            StartCoroutine(PutOutFire());
         }
-        else
+        if (player.TryGetComponent<PlayerAction>(out var playerAction))
         {
-            HintUI.Instance.ShowHint(hint);
+            if (normalFire)
+            {
+                if (playerAction.holdNozzle)
+                {
+                    playerAction.HydrantNozzle();
+                    StartCoroutine(PutOutFire());
+                }
+                else
+                {
+                    HintUI.Instance.ShowHint(HydrantHint);
+                }
+            }
+            else
+            {
+                if (CheckRequirements(player, out var inv))
+                {
+                    playerAction.Extinguish();
+                    StartCoroutine(PutOutFire());
+                }
+                else
+                {
+                    HintUI.Instance.ShowHint(hint);
+                }
+            }
         }
     }
 
@@ -28,7 +54,6 @@ public class Fire : InteractableItem
         var hp = other.GetComponent<PlayerHealth>();
         if (hp != null)
         {
-
             hp.TakeDamage(1, DamageType.Fire);
         }
     }
@@ -42,3 +67,4 @@ public class Fire : InteractableItem
         if (col != null) col.enabled = false;
     }
 }
+
