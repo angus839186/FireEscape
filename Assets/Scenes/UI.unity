@@ -1124,7 +1124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8FD4\u56DE\u5927\u5EF3"
+  m_Text: "\u8FD4\u56DE\u4E3B\u9078\u55AE"
 --- !u!222 &516260195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1251,7 +1251,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8FD4\u56DE\u83DC\u55AE"
+  m_Text: "\u8FD4\u56DE\u4E3B\u9078\u55AE"
 --- !u!222 &545627086
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1273,7 +1273,7 @@ GameObject:
   - component: {fileID: 553332594}
   - component: {fileID: 553332593}
   m_Layer: 5
-  m_Name: "\u8FD4\u56DE\u5927\u5EF3"
+  m_Name: "\u8FD4\u56DE"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 636493729}
   - component: {fileID: 636493728}
   m_Layer: 5
-  m_Name: "\u8FD4\u56DE\u5927\u5EF3"
+  m_Name: "\u8FD4\u56DE"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2279,7 +2279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8FD4\u56DE\u5927\u5EF3"
+  m_Text: "\u8FD4\u56DE\u4E3B\u9078\u55AE"
 --- !u!222 &1238882072
 CanvasRenderer:
   m_ObjectHideFlags: 0
