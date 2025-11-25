@@ -30405,7 +30405,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207138428}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: bb8b53fcef1fbca4da73ceaeeb07579d, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 69863f5ac61491c47ad493627a0c0d8f, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -141402,7 +141402,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 5
-      minScalar: 5
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -142378,9 +142378,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0}
-        key1: {r: 0, g: 0, b: 0, a: 1}
+        key1: {r: 0, g: 0, b: 0, a: 0.7058824}
         key2: {r: 1, g: 1, b: 1, a: 1}
-        key3: {r: 1, g: 1, b: 1, a: 0}
+        key3: {r: 1, g: 1, b: 1, a: 0.7058824}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -142394,17 +142394,17 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 5397
-        atime2: 54741
-        atime3: 65535
-        atime4: 0
+        atime1: 6168
+        atime2: 6361
+        atime3: 54741
+        atime4: 65150
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 4
+        m_NumAlphaKeys: 5
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -196434,6 +196434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOB_LOD
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -196441,6 +196445,14 @@ PrefabInstance:
     - target: {fileID: 100008, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9c16c2b0ef8205a45823521d6ed61d12, type: 3}
       propertyPath: m_LocalScale.x
@@ -226766,8 +226778,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.43, y: 4.3, z: 9.908736}
-  m_Center: {x: 0.000018586426, y: -0.39999986, z: 4.334482}
+  m_Size: {x: 2.4808211, y: 2.5091488, z: 9.908736}
+  m_Center: {x: -0.31097597, y: 0.49542677, z: 4.334494}
 --- !u!199 &1673104354
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -226926,7 +226938,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 4
-      minScalar: 3.5
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -227060,8 +227072,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 4
+      scalar: 2
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -231351,13 +231363,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673104351}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.6778692, z: -0, w: 0.7351826}
-  m_LocalPosition: {x: 11.42, y: 5.97, z: 14.82}
+  m_LocalRotation: {x: -0.06667136, y: -0.67507595, z: -0.06147381, w: 0.73215324}
+  m_LocalPosition: {x: 11.48, y: 5.97, z: 15.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -85.355, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.406, y: -85.355, z: 0}
 --- !u!1 &1676030343
 GameObject:
   m_ObjectHideFlags: 0
@@ -292029,7 +292041,7 @@ Transform:
   m_GameObject: {fileID: 1273913905117839}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.671, y: -1.83, z: 12.76}
+  m_LocalPosition: {x: 14.671, y: -1.83, z: 12.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
