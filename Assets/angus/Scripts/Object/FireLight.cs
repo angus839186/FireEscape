@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireLight : MonoBehaviour
 {
+    public GameObject LightRoot;
     public Light warningLight;
     public float flashSpeed;
     public float rotateSpeed;
@@ -17,6 +18,6 @@ public class FireLight : MonoBehaviour
         warningLight.intensity = intensity;
 
         // 只繞 Y 軸旋轉
-        warningLight.transform.Rotate(0f, rotateSpeed * Time.deltaTime, 0f);
+        LightRoot.transform.Rotate(0f, 0f, rotateSpeed * Time.deltaTime);
     }
 }
