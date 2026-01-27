@@ -7,7 +7,7 @@ using UnityEngine.Video;
 
 public class PreviewScreen : MonoBehaviour
 {
-    public VideoPlayer PreviewVideo;
+    //public VideoPlayer PreviewVideo;
     public GameObject ScreenCanvas;
 
     public TvCamera tvCam;
@@ -16,7 +16,7 @@ public class PreviewScreen : MonoBehaviour
 
     public void StopPreview()
     {
-        PreviewVideo.Stop();
+        //PreviewVideo.Stop();
         ScreenCanvas.SetActive(false);
         tvCam.gameObject.SetActive(false);
 
