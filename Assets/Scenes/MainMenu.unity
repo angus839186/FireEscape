@@ -374,7 +374,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 363, y: -450}
-  m_SizeDelta: {x: 525, y: 675}
+  m_SizeDelta: {x: 525, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38555615
 MonoBehaviour:
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ccac5687187476643b75e2f9a61e5374, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74841bb4e176e214d8ed9197d1f1fbf1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -624,7 +624,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 959, y: -450}
-  m_SizeDelta: {x: 525, y: 675}
+  m_SizeDelta: {x: 525, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206641204
 MonoBehaviour:
@@ -677,7 +677,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8c0138721e9ac654082ae21156ff3b90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55e96fa2e99048742a3d23e6308ee0d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1580,8 +1580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1557, y: -450}
-  m_SizeDelta: {x: 525, y: 675}
+  m_AnchoredPosition: {x: 1545, y: -458}
+  m_SizeDelta: {x: 525, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &788531549
 MonoBehaviour:
@@ -1634,7 +1634,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1659,7 +1659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5463f2e49520a924f914ada3239e0a6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01ab0cb9a8c8c39438e583ac28120940, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
