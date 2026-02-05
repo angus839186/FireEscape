@@ -24,7 +24,7 @@ public class ElevatorControl : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
             // 確保射線打到的是掛載此腳本的電梯物件
-            if (hit.collider.gameObject == this.gameObject)
+            if (hit.collider.transform.IsChildOf(this.transform))
             {
                 ToggleDoor();
             }
