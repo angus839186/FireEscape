@@ -222129,7 +222129,7 @@ PrefabInstance:
       addedObject: {fileID: 1678496306}
     - targetCorrespondingSourceObject: {fileID: 100004, guid: 75181ddabc44e404f9a4b441e892458f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1678496310}
+      addedObject: {fileID: 1678496313}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 75181ddabc44e404f9a4b441e892458f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 98094003}
@@ -222163,7 +222163,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1678496310
+--- !u!114 &1678496313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
