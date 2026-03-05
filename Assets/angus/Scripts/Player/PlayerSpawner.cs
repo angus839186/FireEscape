@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class PlayerSpawner : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject PlayerPrefab;
 
     public GameObject GameInputPrefab;
+
+    public UnityEvent EventAfterSpawn;
 
     void Awake()
     {
@@ -50,6 +53,12 @@ public class PlayerSpawner : MonoBehaviour
         if (!SceneManager.GetSceneByName("UI").isLoaded)
         {
             SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        }
+
+        yield return new WaitForSeconds(0.2f);
+        if (EventAfterSpawn != null)
+        {
+            EventAfterSpawn.Invoke();
         }
     }
 }

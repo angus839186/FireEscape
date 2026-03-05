@@ -1990,7 +1990,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!1 &1113030306
 GameObject:
@@ -2704,7 +2704,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!225 &1276003220
 CanvasGroup:
@@ -3545,7 +3545,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1870100223
 RectTransform:
@@ -4070,7 +4070,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &2141751917
 RectTransform:
@@ -4098,8 +4098,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1113030311}
   - {fileID: 231729385}
-  - {fileID: 1690380188}
   - {fileID: 535396622}
+  - {fileID: 1690380188}
   - {fileID: 1902133162}
   - {fileID: 2141751917}
   - {fileID: 1301864049}
