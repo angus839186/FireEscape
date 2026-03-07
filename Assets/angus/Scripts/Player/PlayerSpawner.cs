@@ -17,7 +17,14 @@ public class PlayerSpawner : MonoBehaviour
     void Awake()
     {
         PreviewScreen preview = FindFirstObjectByType<PreviewScreen>();
-        preview.StopPreviewVideo += SpawnPlayerAndUI;
+        if(preview != null)
+        {
+            preview.StopPreviewVideo += SpawnPlayerAndUI;
+        }
+        else
+        {
+            SpawnPlayerAndUI();
+        }
     }
 
     void OnDisable()

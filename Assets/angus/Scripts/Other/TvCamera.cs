@@ -39,14 +39,14 @@ public class TvCamera : MonoBehaviour
 
         while (running)
         {
-            // 位移
+            
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 desiredPos,
                 moveSpeed * Time.deltaTime
             );
 
-            // 到達誤差閾值即停止
+
             if (Vector3.Distance(transform.position, desiredPos) < 0.01f)
                 running = false;
 

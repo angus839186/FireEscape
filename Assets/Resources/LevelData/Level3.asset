@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f70d20b3e5c0147b450f39fcf68515, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
-  sceneName: house
+  sceneName: labotory
   defaultSpawnPos: {x: 0, y: 0, z: 0}
   defaultSpawnEuler: {x: 0, y: 0, z: 0}

@@ -8,9 +8,9 @@ public class GuideLine : MonoBehaviour
     public Transform target;
 
     [Header("地板設定")]
-    public LayerMask groundMask;          // 指定地板的 Layer
-    public float raycastHeight = 2f;      // 往下打 Ray 的起點高度（相對 target）
-    public float groundYOffset = 0.05f;   // 讓線稍微浮在地面上
+    public LayerMask groundMask;
+    public float raycastHeight = 2f;
+    public float groundYOffset = 0.05f;
 
     [Header("箭頭貼圖設定")]
     public float arrowWorldLength = 0.5f;
