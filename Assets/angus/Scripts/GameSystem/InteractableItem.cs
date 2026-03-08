@@ -6,46 +6,27 @@ using UnityEngine;
 public abstract class InteractableItem : MonoBehaviour, IInteractable
 {
 
-    [Header("高亮顏色（Emission 顏色）")]
-    public Color highlightColor;
-    public float emissionIntensity = 2f;
-
-    private Renderer[] renderers;
-
-    private Material[] originalMats;
-    private Material[] highlightMats;
-
-    [Space]
-
     [Header("互動設定")]
     [SerializeField] private ItemData requiredItem;
 
+    [Header("消防員提示")]
     public Hint hint;
+
+    [Header("玩家自白")]
     public DialogueData dialogue;
 
+    [Header("空氣牆")]
     public GameObject airCollider;
 
-    
+    [Header("下一個高亮物件")]
     public GameObject NextHighLightObject;
+
+    [Header("可撿取道具")]
+    public ItemData itemToAdd;
+
     public bool canInteract;
 
-    void Awake()
-    {
-        renderers = GetComponentsInChildren<Renderer>();
-
-        originalMats = new Material[renderers.Length];
-        highlightMats = new Material[renderers.Length];
-
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            originalMats[i] = renderers[i].material;
-
-            var mat = new Material(originalMats[i]);
-            mat.EnableKeyword("_EMISSION");
-            mat.SetColor("_EmissionColor", highlightColor * emissionIntensity);
-            highlightMats[i] = mat;
-        }
-    }
+    public bool TriggerOnce;
 
     protected bool CheckRequirements(PlayerInteraction player, out PlayerItem playerItem)
     {
@@ -58,23 +39,63 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
         return true;
     }
 
-    public abstract void Interact(PlayerInteraction player);
-
-    public void HighLight(bool toggle)
+    public virtual void Interact(PlayerInteraction player)
     {
-        for (int i = 0; i < renderers.Length; i++)
+        if (canInteract)
         {
-            renderers[i].material = toggle ? highlightMats[i] : originalMats[i];
-        }
-        GuideLine guideLine = FindFirstObjectByType<GuideLine>();
-        if(toggle)
-        {
-            guideLine.StartGuide(this.transform);
-        }
-        else
-        {
-            guideLine.StopGuide();
+            ShowHint(hint);
+            ToggleAirCollider(false);
+            ShowPlayerTalk(player);
+            NextHighLight();
+            canInteract = false;
         }
     }
+    public void ShowHint(Hint hint)
+    {
+        if (hint != null)
+        {
+            HintUI.Instance.ShowHint(hint);
+        }
+    }
+    public void ToggleAirCollider(bool toggle)
+    {
+        if (airCollider != null)
+        {
+            airCollider.SetActive(toggle);
+        }
+    }
+    public void ShowPlayerTalk(PlayerInteraction player)
+    {
+        if (dialogue != null)
+        {
+            player.GetComponent<PlayerTalk>().Talk(dialogue);
+        }
+    }
+    public void NextHighLight()
+    {
+        if (NextHighLightObject != null)
+        {
+            NextHighLightObject.GetComponent<HighLightObject>().HighLight(true);
+        }
+    }
+    public void AddItem(PlayerInteraction player)
+    {
+        if (player.TryGetComponent(out PlayerItem playerItem))
+        {
+            playerItem.AddItem(itemToAdd);
+        }
+        this.gameObject.SetActive(false);
+    }
+
+    public void CloseObjectHighLight()
+    {
+        HighLightObject highLightObject = GetComponent<HighLightObject>();
+        if(highLightObject != null)
+        {
+            highLightObject.HighLight(false);
+        }
+    }
+
+    public abstract void InteractSound();
 }
 

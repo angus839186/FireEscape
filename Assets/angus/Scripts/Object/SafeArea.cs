@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exit : InteractableItem
+public class SafeArea : InteractableItem
 {
     [SerializeField] private bool win;
 

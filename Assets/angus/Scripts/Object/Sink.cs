@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sink : InteractableItem
 {
-    public AudioClip waterClip;
+    public AudioSource audioSource;
     public override void Interact(PlayerInteraction player)
     {
         if (canInteract)
@@ -13,9 +13,16 @@ public class Sink : InteractableItem
             {
                 player.GetComponent<PlayerAction>().ragisWet = true;
                 player.GetComponent<PlayerAction>().rag.SetActive(true);
-                AudioManager.Instance.PlaySound(waterClip);
+                ShowPlayerTalk(player);
+                InteractSound();
+                CloseObjectHighLight();
                 canInteract = false;
             }
         }
+    }
+
+    public override void InteractSound()
+    {
+        audioSource.Play();
     }
 }

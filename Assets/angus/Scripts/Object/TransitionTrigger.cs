@@ -40,7 +40,11 @@ public class TransitionTrigger : InteractableItem
         }
         yield return new WaitForSeconds(wakeUpDelayTime);
         OnTransition?.Invoke(false);
-        cellPhone.StartRing();
         player.GetComponent<PlayerAction>().ToggleFreeze(false);
+    }
+
+    public override void InteractSound()
+    {
+        
     }
 }

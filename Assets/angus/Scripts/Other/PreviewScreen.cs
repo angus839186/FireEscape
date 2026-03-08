@@ -20,6 +20,7 @@ public class PreviewScreen : MonoBehaviour
         //PreviewVideo.Stop();
         ScreenCanvas.SetActive(false);
         tvCam.gameObject.SetActive(false);
+        Debug.Log("Skipeed");
 
         StopPreviewVideo?.Invoke();
     }

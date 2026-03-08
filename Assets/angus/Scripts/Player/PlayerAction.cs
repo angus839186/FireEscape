@@ -72,6 +72,12 @@ public class PlayerAction : MonoBehaviour
         player.interacting = toggle;
     }
 
+    public void ToggleInCar(bool toggle)
+    {
+        PlayerController player = GetComponent<PlayerController>();
+        player.inTheCar = toggle;
+    }
+
     public void useRag(bool toggle)
     {
         if (ragisWet == false) return;

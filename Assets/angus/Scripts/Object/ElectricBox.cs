@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elevator : InteractableItem
+public class ElectricBox : InteractableItem
 {
-    [SerializeField] private Animator anime;
     public override void Interact(PlayerInteraction player)
     {
-        anime.SetBool("Toggle", !anime.GetBool("Toggle"));
+        base.Interact(player);
     }
 
     public override void InteractSound()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

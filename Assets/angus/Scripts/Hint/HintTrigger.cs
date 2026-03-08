@@ -4,25 +4,36 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class HintTrigger : MonoBehaviour
+public class HintTrigger : InteractableItem
 {
-    public bool TriggerOnce;
-    public Hint hint;
 
-    public GameObject NextHighLightObject;
+    public override void InteractSound()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Interact(PlayerInteraction player)
+    {
+        base.Interact(player);
+        if (TriggerOnce)
+        {
+            GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (canInteract)
         {
-            HintUI.Instance.ShowHint(hint);
-            TriggerOnce = false;
-            if(NextHighLightObject != null)
+            if (other.CompareTag("Player"))
             {
-                NextHighLightObject.GetComponent<IInteractable>().HighLight(true);
-            }
-            if (TriggerOnce)
-            {
-                GetComponent<BoxCollider>().enabled = false;
+                ShowHint(hint);
+                NextHighLight();
+                if (TriggerOnce)
+                {
+                    GetComponent<BoxCollider>().enabled = false;
+                    canInteract = false;
+                }
             }
         }
     }

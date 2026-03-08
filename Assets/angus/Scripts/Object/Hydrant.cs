@@ -11,12 +11,17 @@ public class Hydrant : InteractableItem
         if(!playerAct.holdNozzle)
         {
             playerAct.ToggleNozzle(true);
-            HintUI.Instance.ShowHint(hint);
+            ShowHint(hint);
         }
         else
         {
             playerAct.ToggleNozzle(false);
         }
-        this.HighLight(false);
+        CloseObjectHighLight();
+    }
+
+    public override void InteractSound()
+    {
+        
     }
 }

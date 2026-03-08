@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -66,6 +67,24 @@ public class PlayerSpawner : MonoBehaviour
         if (EventAfterSpawn != null)
         {
             EventAfterSpawn.Invoke();
+        }
+    }
+
+    public void FreezePlayerOnStart()
+    {
+        PlayerAction player = FindObjectOfType<PlayerAction>();
+        if (player != null)
+        {
+            player.ToggleFreeze(true);
+        }
+    }
+
+    public void FreezePlayerOnCar()
+    {
+        PlayerAction player = FindObjectOfType<PlayerAction>();
+        if (player != null)
+        {
+            player.ToggleInCar(true);
         }
     }
 }

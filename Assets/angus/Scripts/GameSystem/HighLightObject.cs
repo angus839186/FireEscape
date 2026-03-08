@@ -1,29 +1,21 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-
-public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
+public class HighLightObject : MonoBehaviour, IHighlightable
 {
+
     [Header("高亮顏色（Emission 顏色）")]
     public Color highlightColor;
-    public float emissionIntensity = 2f;
+    public float emissionIntensity;
 
     private Renderer[] renderers;
 
     private Material[] originalMats;
     private Material[] highlightMats;
 
-    [Space]
-
-    [Header("互動設定")]
-    public Hint hintData;
-    public ItemData itemData;
-
-    public GameObject airCollider;
-
-    public GameObject NextHighLightObject;
-
-    public bool canPickUp = true;
+    bool isHighLighted;
 
     void Awake()
     {
@@ -50,7 +42,7 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
             renderers[i].material = toggle ? highlightMats[i] : originalMats[i];
         }
         GuideLine guideLine = FindFirstObjectByType<GuideLine>();
-        if (toggle)
+        if(toggle)
         {
             guideLine.StartGuide(this.transform);
         }
@@ -59,26 +51,5 @@ public abstract class UsableItem : MonoBehaviour, IUsable, IInteractable
             guideLine.StopGuide();
         }
     }
-
-    public virtual void Interact(PlayerInteraction player)
-    {
-        if (canPickUp)
-        {
-            player.GetComponent<PlayerItem>().AddItem(this.itemData);
-            if (hintData != null)
-            {
-                HintUI.Instance.ShowHint(this.hintData);
-            }
-            if (airCollider != null)
-            {
-                airCollider.SetActive(false);
-            }
-            this.HighLight(false);
-            if(NextHighLightObject != null)
-            {
-                NextHighLightObject.GetComponent<IInteractable>().HighLight(true);
-            }
-            this.gameObject.SetActive(false);
-        }
-    }
 }
+

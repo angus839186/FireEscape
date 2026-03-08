@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elevator : InteractableItem
+public class Extinguisher : InteractableItem
 {
-    [SerializeField] private Animator anime;
     public override void Interact(PlayerInteraction player)
     {
-        anime.SetBool("Toggle", !anime.GetBool("Toggle"));
+        base.Interact(player);
+        AddItem(player);
+        CloseObjectHighLight();
     }
 
     public override void InteractSound()
     {
-        throw new System.NotImplementedException();
+
     }
 }

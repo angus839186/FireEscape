@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public Vector3 move;
     public Vector2 rotate;
     public float speed = 5f;
-    public bool interacting;
 
     [Header("Gravity")]
     public float gravity = -9.81f;
@@ -42,9 +41,16 @@ public class PlayerController : MonoBehaviour
     public bool wantsCrouch = false;
     private float currentHeight;
     private float targetHeight;
-    private float heightVel;       // SmoothDamp 用
-    private float camYVel;         // SmoothDamp 用
+    private float heightVel;
+    private float camYVel;
     private float baseSpeed;
+
+    [Header("State")]
+    public bool interacting;
+    public bool inTheCar;
+
+    private bool CanLook => !interacting;
+    private bool CanMove => !interacting && !inTheCar;
 
     void Start()
     {
@@ -98,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!interacting)
+        if (CanLook)
         {
             playerLook.playerRotate(rotate);
         }
@@ -122,18 +128,19 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        // 依蹲下狀態調整速度
         float targetSpeed = wantsCrouch ? baseSpeed * crouchSpeedMultiplier : baseSpeed;
         speed = Mathf.Lerp(speed, targetSpeed, 10f * Time.deltaTime);
 
-        Vector3 velocity = move * speed + Vector3.up * verticalVelocity;
+        Vector3 horizontalMove = CanMove ? move : Vector3.zero;
+        Vector3 velocity = horizontalMove * speed + Vector3.up * verticalVelocity;
         character.Move(transform.TransformDirection(velocity) * Time.deltaTime);
     }
+
 
     private void ApplyGravity()
     {
         if (character.isGrounded && verticalVelocity < 0)
-            verticalVelocity = -2f; // 貼地避免浮動
+            verticalVelocity = -2f;
 
         verticalVelocity += gravity * Time.deltaTime;
     }

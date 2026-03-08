@@ -14,11 +14,7 @@ public class Fire : InteractableItem
     {
         if (!canInteract)
         {
-            if (dialogue != null)
-            {
-                PlayerTalk playerTalk = FindFirstObjectByType<PlayerTalk>();
-                playerTalk.Talk(dialogue);
-            }
+            ShowPlayerTalk(player);
         }
         if (player.TryGetComponent<PlayerAction>(out var playerAction))
         {
@@ -31,7 +27,7 @@ public class Fire : InteractableItem
                 }
                 else
                 {
-                    HintUI.Instance.ShowHint(HydrantHint);
+                    ShowHint(HydrantHint);
                 }
             }
             else
@@ -43,10 +39,15 @@ public class Fire : InteractableItem
                 }
                 else
                 {
-                    HintUI.Instance.ShowHint(hint);
+                    ShowHint(hint);
                 }
             }
         }
+    }
+
+    public override void InteractSound()
+    {
+        
     }
 
     void OnTriggerStay(Collider other)

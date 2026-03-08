@@ -23,20 +23,28 @@ public class DoorTrigger : InteractableItem
         originRotation = HingeTransform.rotation;
     }
 
-    public override void Interact(PlayerInteraction player)
+    public override void InteractSound()
     {
         if (locked)
         {
-            if (dialogue != null)
-            {
-                player.GetComponent<PlayerTalk>().Talk(dialogue);
-            }
             AudioManager.Instance.PlaySound(lockedDoorClip);
         }
         else
         {
-            ToggleDoor(player.transform);
             AudioManager.Instance.PlaySound(openDoorClip);
+        }
+    }
+
+    public override void Interact(PlayerInteraction player)
+    {
+        InteractSound();
+        if (locked)
+        {
+            ShowPlayerTalk(player);
+        }
+        else
+        {
+            ToggleDoor(player.transform);
         }
     }
 
