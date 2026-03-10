@@ -9,10 +9,10 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
     [Header("互動設定")]
     [SerializeField] private ItemData requiredItem;
 
-    [Header("消防員提示")]
+    [Header("預設提示")]
     public Hint hint;
 
-    [Header("玩家自白")]
+    [Header("預設自白")]
     public DialogueData dialogue;
 
     [Header("空氣牆")]
@@ -45,7 +45,7 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
         {
             ShowHint(hint);
             ToggleAirCollider(false);
-            ShowPlayerTalk(player);
+            ShowPlayerTalk(player, dialogue);
             NextHighLight();
             canInteract = false;
         }
@@ -64,11 +64,11 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
             airCollider.SetActive(toggle);
         }
     }
-    public void ShowPlayerTalk(PlayerInteraction player)
+    public void ShowPlayerTalk(PlayerInteraction player, DialogueData customDialogue)
     {
-        if (dialogue != null)
+        if (customDialogue != null)
         {
-            player.GetComponent<PlayerTalk>().Talk(dialogue);
+            player.GetComponent<PlayerTalk>().Talk(customDialogue);
         }
     }
     public void NextHighLight()
@@ -94,6 +94,11 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
         {
             highLightObject.HighLight(false);
         }
+    }
+
+    public void CloseInteract()
+    {
+        GetComponent<Collider>().enabled = false;
     }
 
     public abstract void InteractSound();

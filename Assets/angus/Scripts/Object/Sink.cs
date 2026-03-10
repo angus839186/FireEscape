@@ -13,7 +13,7 @@ public class Sink : InteractableItem
             {
                 player.GetComponent<PlayerAction>().ragisWet = true;
                 player.GetComponent<PlayerAction>().rag.SetActive(true);
-                ShowPlayerTalk(player);
+                ShowPlayerTalk(player, dialogue);
                 InteractSound();
                 CloseObjectHighLight();
                 canInteract = false;

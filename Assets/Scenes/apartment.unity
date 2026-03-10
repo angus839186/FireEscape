@@ -5124,17 +5124,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29503940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.64}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 14.089999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1917756218}
-  m_Father: {fileID: 683340027}
+  m_Father: {fileID: 237308207}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.81, y: 0.95}
+  m_AnchoredPosition: {x: 1.5, y: 4.12}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29503942
@@ -30129,6 +30129,7 @@ Transform:
   - {fileID: 1167544777}
   - {fileID: 1905090089}
   - {fileID: 543450652751426418}
+  - {fileID: 29503941}
   - {fileID: 731704857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40254,6 +40255,7 @@ MonoBehaviour:
   canInteract: 1
   TriggerOnce: 0
   locked: 0
+  isInteractionUnlocked: 1
   HingeTransform: {fileID: 386221176}
   openAngle: 90
   turnSpeed: 180
@@ -40261,6 +40263,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!1 &389833932
 GameObject:
   m_ObjectHideFlags: 0
@@ -84834,7 +84837,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 994850257}
-  - {fileID: 29503941}
+  - {fileID: 1032106015}
   m_Father: {fileID: 731704857}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &683340029
@@ -84872,13 +84875,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
+  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
   canInteract: 1
   TriggerOnce: 0
   locked: 0
+  isInteractionUnlocked: 0
   HingeTransform: {fileID: 683340027}
   openAngle: 90
   turnSpeed: 180
@@ -84886,6 +84890,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!1 &694922288
 GameObject:
   m_ObjectHideFlags: 0
@@ -90479,6 +90484,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 309871453}
+  - {fileID: 1858120633}
   m_Father: {fileID: 731704857}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &775687138
@@ -90588,13 +90594,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
+  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
   canInteract: 1
   TriggerOnce: 0
   locked: 1
+  isInteractionUnlocked: 0
   HingeTransform: {fileID: 775657416}
   openAngle: 90
   turnSpeed: 180
@@ -90602,6 +90609,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!1 &779991466
 GameObject:
   m_ObjectHideFlags: 0
@@ -125525,6 +125533,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995548527}
   m_Mesh: {fileID: 4300002, guid: 545dc11e63502bc42bba2ca09a29e398, type: 3}
+--- !u!1 &1032106014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032106015}
+  - component: {fileID: 1032106017}
+  - component: {fileID: 1032106016}
+  m_Layer: 3
+  m_Name: DoorHandle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1032106015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032106014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.06, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 683340027}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1032106016
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032106014}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.434807, y: 1, z: 1}
+  m_Center: {x: -0.21740353, y: 0, z: -4.6322284e-16}
+--- !u!114 &1032106017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032106014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42b6c8165f497a42ab3d37a868b265c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredItem: {fileID: 0}
+  hint: {fileID: 11400000, guid: 46aa6f4fc86a55845b6f1fe40421d851, type: 2}
+  dialogue: {fileID: 11400000, guid: dfeb8368cfd77d9499d7639b391239c9, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
+  itemToAdd: {fileID: 0}
+  canInteract: 1
+  TriggerOnce: 0
+  targetDoorTrigger: {fileID: 683340032}
+  isHot: 0
+  doorHandleText: {fileID: 29503940}
+  hotDialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
 --- !u!1 &1033241076
 GameObject:
   m_ObjectHideFlags: 0
@@ -145642,7 +145728,7 @@ GameObject:
   - component: {fileID: 1134127262}
   - component: {fileID: 1134127261}
   m_Layer: 3
-  m_Name: "\u9580 (1)"
+  m_Name: "\u6D74\u5BA4\u9580"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145685,6 +145771,7 @@ MonoBehaviour:
   canInteract: 1
   TriggerOnce: 0
   locked: 0
+  isInteractionUnlocked: 1
   HingeTransform: {fileID: 1134127260}
   openAngle: -90
   turnSpeed: 180
@@ -145692,6 +145779,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!65 &1134127262
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -246268,6 +246356,84 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1816884873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1816884874}
+  - component: {fileID: 1816884876}
+  - component: {fileID: 1816884875}
+  m_Layer: 3
+  m_Name: DoorHandle (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1816884874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816884873}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.02, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2111987000}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1816884875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816884873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.434807, y: 1, z: 1}
+  m_Center: {x: -0.21740353, y: 0, z: -4.6322284e-16}
+--- !u!114 &1816884876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816884873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42b6c8165f497a42ab3d37a868b265c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredItem: {fileID: 0}
+  hint: {fileID: 0}
+  dialogue: {fileID: 11400000, guid: dfeb8368cfd77d9499d7639b391239c9, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
+  itemToAdd: {fileID: 0}
+  canInteract: 1
+  TriggerOnce: 0
+  targetDoorTrigger: {fileID: 2111987001}
+  isHot: 1
+  doorHandleText: {fileID: 29503940}
+  hotDialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
 --- !u!1 &1820040961
 GameObject:
   m_ObjectHideFlags: 0
@@ -246523,6 +246689,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829963088}
   m_Mesh: {fileID: 4527814094925062444, guid: 72b3cc312a3f94b439e6577df37d3dc7, type: 3}
+--- !u!1 &1858120632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1858120633}
+  - component: {fileID: 1858120635}
+  - component: {fileID: 1858120634}
+  m_Layer: 3
+  m_Name: DoorHandle (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1858120633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858120632}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.02, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 775657416}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1858120634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858120632}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.434807, y: 1, z: 1}
+  m_Center: {x: -0.21740353, y: 0, z: -4.6322284e-16}
+--- !u!114 &1858120635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858120632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42b6c8165f497a42ab3d37a868b265c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredItem: {fileID: 0}
+  hint: {fileID: 0}
+  dialogue: {fileID: 11400000, guid: dfeb8368cfd77d9499d7639b391239c9, type: 2}
+  airCollider: {fileID: 0}
+  NextHighLightObject: {fileID: 0}
+  itemToAdd: {fileID: 0}
+  canInteract: 1
+  TriggerOnce: 0
+  targetDoorTrigger: {fileID: 775687146}
+  isHot: 1
+  doorHandleText: {fileID: 29503940}
+  hotDialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
 --- !u!1 &1889133404
 GameObject:
   m_ObjectHideFlags: 0
@@ -257179,6 +257423,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1333087060}
+  - {fileID: 1816884874}
   m_Father: {fileID: 731704857}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &2111987001
@@ -257195,13 +257440,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
+  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
   canInteract: 1
   TriggerOnce: 0
   locked: 1
+  isInteractionUnlocked: 0
   HingeTransform: {fileID: 2111987000}
   openAngle: 90
   turnSpeed: 180
@@ -257209,6 +257455,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!65 &2111987002
 BoxCollider:
   m_ObjectHideFlags: 0

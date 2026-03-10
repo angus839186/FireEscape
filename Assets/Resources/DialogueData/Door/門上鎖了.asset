@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44113de416575fb49a0c7a7a0a3f43d5, type: 3}
-  m_Name: "\u4E0D\u80FD\u51FA\u53BB"
+  m_Name: "\u9580\u4E0A\u9396\u4E86"
   m_EditorClassIdentifier: 
   DialogueText:
-  - "\u6211\u61C9\u8A72\u5148\u505A\u5225\u7684\u4E8B"
+  - "\u9580\u9396\u4F4F\u4E86..."

@@ -6,6 +6,8 @@ public class DoorTrigger : InteractableItem
 {
     [Header("Door Setup")]
     public bool locked;
+
+    public bool isInteractionUnlocked;
     public Transform HingeTransform;
     public float openAngle = 90f;
     public float turnSpeed = 180f;
@@ -17,6 +19,8 @@ public class DoorTrigger : InteractableItem
     public AudioClip openDoorClip;
 
     private Coroutine rotateCR;
+
+    public Hint DoorHandleHint;
 
     void Awake()
     {
@@ -37,14 +41,22 @@ public class DoorTrigger : InteractableItem
 
     public override void Interact(PlayerInteraction player)
     {
-        InteractSound();
-        if (locked)
+        if (!isInteractionUnlocked)
         {
-            ShowPlayerTalk(player);
+            HintUI.Instance.ShowHint(DoorHandleHint);
         }
         else
         {
-            ToggleDoor(player.transform);
+            InteractSound();
+
+            if (locked)
+            {
+                ShowPlayerTalk(player, dialogue);
+            }
+            else
+            {
+                ToggleDoor(player.transform);
+            }
         }
     }
 
@@ -87,4 +99,10 @@ public class DoorTrigger : InteractableItem
         HingeTransform.rotation = target; // 對齊終點避免殘差
         rotateCR = null;
     }
+
+    public void UnlockInteraction()
+    {
+        isInteractionUnlocked = true;
+    }
+
 }

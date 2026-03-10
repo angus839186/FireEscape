@@ -14,7 +14,7 @@ public class Fire : InteractableItem
     {
         if (!canInteract)
         {
-            ShowPlayerTalk(player);
+            ShowPlayerTalk(player, dialogue);
         }
         if (player.TryGetComponent<PlayerAction>(out var playerAction))
         {
