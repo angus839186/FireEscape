@@ -29917,7 +29917,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 1905090088}
   itemToAdd: {fileID: 0}
-  canInteract: 0
+  canInteract: 1
   TriggerOnce: 1
 --- !u!1 &217953460
 GameObject:
@@ -40156,7 +40156,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
-  canInteract: 0
+  canInteract: 1
   TriggerOnce: 1
 --- !u!65 &368887741
 BoxCollider:
@@ -40255,7 +40255,7 @@ MonoBehaviour:
   canInteract: 1
   TriggerOnce: 0
   locked: 0
-  isInteractionUnlocked: 0
+  isInteractionUnlocked: 1
   HingeTransform: {fileID: 386221176}
   openAngle: 90
   turnSpeed: 180
@@ -40263,7 +40263,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
-  DoorHandleHint: {fileID: 0}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!1 &389833932
 GameObject:
   m_ObjectHideFlags: 0
@@ -84509,7 +84509,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 919132147585562755}
   itemToAdd: {fileID: 0}
-  canInteract: 0
+  canInteract: 1
   TriggerOnce: 1
 --- !u!65 &620010237
 BoxCollider:
@@ -84890,7 +84890,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
-  DoorHandleHint: {fileID: 0}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!1 &694922288
 GameObject:
   m_ObjectHideFlags: 0
@@ -90609,7 +90609,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
-  DoorHandleHint: {fileID: 0}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!1 &779991466
 GameObject:
   m_ObjectHideFlags: 0
@@ -100789,7 +100789,15 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4116055083648172844, guid: 80e9e8de3f76ba44895993e947142c66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116055083648172844, guid: 80e9e8de3f76ba44895993e947142c66, type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128615225100997621, guid: 80e9e8de3f76ba44895993e947142c66, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7128615225100997621, guid: 80e9e8de3f76ba44895993e947142c66, type: 3}
@@ -145770,7 +145778,7 @@ MonoBehaviour:
   canInteract: 1
   TriggerOnce: 0
   locked: 0
-  isInteractionUnlocked: 0
+  isInteractionUnlocked: 1
   HingeTransform: {fileID: 1134127260}
   openAngle: -90
   turnSpeed: 180
@@ -145778,7 +145786,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
-  DoorHandleHint: {fileID: 0}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!65 &1134127262
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -201620,7 +201628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
-  hint: {fileID: 0}
+  hint: {fileID: 11400000, guid: 02a4cdb4e1de6654fa853f028996297c, type: 2}
   dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
@@ -257380,7 +257388,7 @@ MonoBehaviour:
   opened: 0
   lockedDoorClip: {fileID: 8300000, guid: 67ed4a9903eb6154ea0daa2fe53567aa, type: 3}
   openDoorClip: {fileID: 8300000, guid: 7630be1b2bbaa0746868c16a4ec85f46, type: 3}
-  DoorHandleHint: {fileID: 0}
+  DoorHandleHint: {fileID: 11400000, guid: 5ed98cec5a8073c44b905dfed1a04737, type: 2}
 --- !u!65 &2111987002
 BoxCollider:
   m_ObjectHideFlags: 0
