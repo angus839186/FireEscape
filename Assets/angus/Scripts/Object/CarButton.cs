@@ -8,27 +8,17 @@ public class CarButton : InteractableItem
 
     public override void Interact(PlayerInteraction player)
     {
-        throw new System.NotImplementedException();
+        base.Interact(player);
+        if (TriggerOnce)
+        {
+            CloseInteract();
+            EventAfterInteract.Invoke();
+        }
     }
 
     public override void InteractSound()
     {
-        throw new System.NotImplementedException();
+        
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        var player = other.GetComponent<PlayerTalk>();
-        if (player != null)
-        {
-            if (dialogue != null)
-            {
-                player.Talk(dialogue);
-            }
-            if (triggerOnce)
-            {
-                GetComponent<BoxCollider>().enabled = false;
-            }
-        }
-    }
 }

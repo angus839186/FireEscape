@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44113de416575fb49a0c7a7a0a3f43d5, type: 3}
-  m_Name: "\u7184\u706B"
+  m_Script: {fileID: 11500000, guid: 2b2c55c1a33ea4a4b8d243859a165e41, type: 3}
+  m_Name: WindowBreaker
   m_EditorClassIdentifier: 
-  DialogueText:
-  - "\u5931\u706B\u4E86...\u6211\u9700\u8981\u5148\u5C07\u8ECA\u5B50\u7D66\u7184\u706B"
+  ItemName: "\u8ECA\u7A97\u64CA\u7834\u5668"
+  ItemDescription: 
+  ItemSprite: {fileID: 0}

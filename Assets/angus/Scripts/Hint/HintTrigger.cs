@@ -15,10 +15,6 @@ public class HintTrigger : InteractableItem
     public override void Interact(PlayerInteraction player)
     {
         base.Interact(player);
-        if (TriggerOnce)
-        {
-            GetComponent<BoxCollider>().enabled = false;
-        }
     }
 
     void OnTriggerEnter(Collider other)

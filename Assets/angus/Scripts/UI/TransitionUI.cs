@@ -5,8 +5,6 @@ public class TransitionUI : MonoBehaviour
 {
     public CanvasGroup transitionCanvas;
     public float transitionSpeed = 2f;
-
-    private TransitionTrigger _bed;
     private Coroutine _running;
 
     void Awake()

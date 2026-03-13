@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class InteractableItem : MonoBehaviour, IInteractable
 {
@@ -23,6 +24,9 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
 
     [Header("可撿取道具")]
     public ItemData itemToAdd;
+
+    [Header("互動後事件")]
+    public UnityEvent EventAfterInteract;
 
     public bool canInteract;
 
@@ -47,6 +51,7 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
             ToggleAirCollider(false);
             ShowPlayerTalk(player, dialogue);
             NextHighLight();
+            EventAfterInteract.Invoke();
             canInteract = false;
         }
     }

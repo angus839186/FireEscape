@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class TransitionTrigger : InteractableItem
 {
-    public AudioSource alarmBell;
-    public CellPhone cellPhone;
 
     public event Action<bool> OnTransition;
 
@@ -34,10 +32,7 @@ public class TransitionTrigger : InteractableItem
         OnTransition?.Invoke(true);
         player.GetComponent<PlayerAction>().ToggleFreeze(true);
         yield return new WaitForSeconds(warningDelayTime);
-        if (alarmBell != null)
-        {
-            alarmBell.Play();
-        }
+        
         yield return new WaitForSeconds(wakeUpDelayTime);
         OnTransition?.Invoke(false);
         player.GetComponent<PlayerAction>().ToggleFreeze(false);

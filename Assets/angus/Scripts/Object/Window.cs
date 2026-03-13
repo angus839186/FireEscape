@@ -4,16 +4,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class CellPhone : InteractableItem
+public class Window : InteractableItem
 {
 
     public override void InteractSound()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void Interact(PlayerInteraction player)
     {
-        base.Interact(player);
+        if (CheckRequirements(player, out var inv))
+        {
+            EventAfterInteract.Invoke();
+        }
+        else
+        {
+            ShowPlayerTalk(player, dialogue);
+        }
     }
 }

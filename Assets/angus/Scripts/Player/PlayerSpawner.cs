@@ -87,4 +87,13 @@ public class PlayerSpawner : MonoBehaviour
             player.ToggleInCar(true);
         }
     }
+
+    public void ShowSpawnDialogue(DialogueData dialogue)
+    {
+        PlayerTalk talker = FindObjectOfType<PlayerTalk>();
+        if (talker != null)
+        {
+            talker.Talk(dialogue);
+        }
+    }
 }
