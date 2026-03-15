@@ -49995,6 +49995,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 0
   TriggerOnce: 1
   _explosion: {fileID: 1588566052}
@@ -55247,6 +55250,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 0
   TriggerOnce: 0
   win: 0
@@ -105942,6 +105948,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
 --- !u!114 &424321517
@@ -116323,7 +116332,6 @@ MonoBehaviour:
   EventAfterSpawn:
     m_PersistentCalls:
       m_Calls: []
-  FreezeOnStart: 0
 --- !u!4 &480326276
 Transform:
   m_ObjectHideFlags: 0
@@ -140880,6 +140888,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 1516326957}
@@ -146156,6 +146167,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 96605662}
@@ -151227,6 +151241,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 388107705}
@@ -181730,6 +181747,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 3507642160214643473}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 1
 --- !u!65 &718246648
@@ -201637,6 +201657,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 1334600736}
@@ -321565,6 +321588,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 471592621}
@@ -357189,6 +357215,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 424321510}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 1
 --- !u!65 &1379544794
@@ -378186,6 +378215,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 829651079}
@@ -428488,6 +428520,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 1097387882}
@@ -428567,6 +428602,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 1032726435}
@@ -438564,6 +438602,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 1525089185}
@@ -438643,6 +438684,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 0
   FireFX: {fileID: 242974443}
@@ -512825,6 +512869,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 1
   TriggerOnce: 1
 --- !u!65 &1948564363
@@ -523376,7 +523423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ea40a4b4ae2184e468f9ae1adde9b86f, type: 2}
+  m_Texture: {fileID: 2800000, guid: d4356fce91470754fb1dea73ecd185ef, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -533793,7 +533840,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2088093066}
-  - component: {fileID: 2088093068}
   - component: {fileID: 2088093067}
   m_Layer: 0
   m_Name: Screen
@@ -533832,42 +533878,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScreenCanvas: {fileID: 1307284379}
   tvCam: {fileID: 1410761802}
---- !u!328 &2088093068
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088093065}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 9c0fa70062cf17d4f8f3e3f8aa8f4e18, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: ea40a4b4ae2184e468f9ae1adde9b86f, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!1001 &2102004765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541063,6 +541073,9 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  EventAfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   canInteract: 0
   TriggerOnce: 0
 --- !u!114 &4316266319142406574
