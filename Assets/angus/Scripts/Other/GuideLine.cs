@@ -4,18 +4,20 @@ using UnityEngine;
 public class GuideLine : MonoBehaviour
 {
     [Header("連線對象")]
-    public Transform player;
-    public Transform target;
+    [SerializeField] public Transform player;
+    [SerializeField] public Transform target;
 
     [Header("地板設定")]
-    public LayerMask groundMask;
-    public float raycastHeight = 2f;
-    public float groundYOffset = 0.05f;
+    [SerializeField] public LayerMask groundMask;
+    [SerializeField] public float raycastHeight = 2f;
+    [SerializeField] private float raycastDistance = 6f;
+    [SerializeField] public float groundYOffset = 0.05f;
 
     [Header("箭頭貼圖設定")]
-    public float arrowWorldLength = 0.5f;
-    public float minRepeatCount = 1f;
-    public float scrollSpeed = 1f;
+    [SerializeField] public float arrowWorldLength = 0.5f;
+    [SerializeField] public float minRepeatCount = 1f;
+    [SerializeField] public float scrollSpeed = 1f;
+    [SerializeField] private float minVisibleLength = 0.15f;
 
     private LineRenderer line;
     private Material lineMatInstance;
@@ -25,11 +27,22 @@ public class GuideLine : MonoBehaviour
     {
         line = GetComponent<LineRenderer>();
 
+        line.positionCount = 2;
+        line.enabled = false;
+
         if (line.material != null)
         {
             lineMatInstance = new Material(line.material);
             line.material = lineMatInstance;
             baseTiling = lineMatInstance.mainTextureScale;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (lineMatInstance != null)
+        {
+            Destroy(lineMatInstance);
         }
     }
 
@@ -54,11 +67,6 @@ public class GuideLine : MonoBehaviour
             endOnGround = hit.point;
         }
 
-        // 讓線「貼在地面上」：把 start / end 的 y 都拉到同一個地板高度
-        float groundY = endOnGround.y + groundYOffset;
-        start.y = groundY;
-        endOnGround.y = groundY;
-
         // --------- 畫線 ---------
         line.enabled = true;
         line.positionCount = 2;
@@ -80,6 +88,65 @@ public class GuideLine : MonoBehaviour
             lineMatInstance.mainTextureOffset = offset;
         }
     }
+
+    private void LateUpdate()
+    {
+        if (player == null || target == null)
+        {
+            line.enabled = false;
+            return;
+        }
+
+        Vector3 startPoint = GetGroundPoint(player.position);
+        Vector3 endPoint = GetGroundPoint(target.position);
+        float lineLength = Vector3.Distance(startPoint, endPoint);
+
+        if (lineLength < minVisibleLength)
+        {
+            line.enabled = false;
+            return;
+        }
+
+        line.enabled = true;
+        line.SetPosition(0, startPoint);
+        line.SetPosition(1, endPoint);
+
+        UpdateTexture(lineLength);
+    }
+
+    private void UpdateTexture(float lineLength)
+    {
+        if (lineMatInstance == null)
+        {
+            return;
+        }
+
+        float safeArrowLength = Mathf.Max(0.01f, arrowWorldLength);
+        float repeatCount = Mathf.Max(minRepeatCount, lineLength / safeArrowLength);
+
+        Vector2 tiling = baseTiling;
+        tiling.x = repeatCount;
+        lineMatInstance.mainTextureScale = tiling;
+
+        Vector2 offset = lineMatInstance.mainTextureOffset;
+        offset.x -= scrollSpeed * Time.deltaTime;
+        lineMatInstance.mainTextureOffset = offset;
+    }
+
+
+
+    private Vector3 GetGroundPoint(Vector3 worldPosition)
+    {
+        Vector3 rayOrigin = worldPosition + Vector3.up * raycastHeight;
+
+        if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance, groundMask, QueryTriggerInteraction.Ignore))
+        {
+            return hit.point + Vector3.up * groundYOffset;
+        }
+
+        return worldPosition + Vector3.up * groundYOffset;
+    }
+
 
     public void StopGuide()
     {

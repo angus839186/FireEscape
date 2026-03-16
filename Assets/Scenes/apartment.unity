@@ -214344,7 +214344,7 @@ MonoBehaviour:
       m_Calls: []
   canInteract: 1
   TriggerOnce: 1
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1169314605}
 --- !u!82 &1169314605
 AudioSource:
   m_ObjectHideFlags: 0
