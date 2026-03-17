@@ -5514,7 +5514,7 @@ GameObject:
   - component: {fileID: 4265994216306351433}
   - component: {fileID: 4020750691533888219}
   - component: {fileID: 6775591227299092238}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10771,7 +10771,6 @@ MonoBehaviour:
   move: {x: 0, y: 0, z: 0}
   rotate: {x: 0, y: 0}
   speed: 5
-  interacting: 0
   gravity: -9.81
   verticalVelocity: 0
   standingHeight: 3.5
@@ -10781,6 +10780,8 @@ MonoBehaviour:
   crouchSmoothTime: 0.12
   crouchSpeedMultiplier: 0.7
   wantsCrouch: 0
+  interacting: 0
+  inTheCar: 0
 --- !u!114 &1411529437397734914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11026,7 +11027,7 @@ GameObject:
   - component: {fileID: 1298105696939256962}
   - component: {fileID: 3263197939507889352}
   - component: {fileID: 9002173037645678311}
-  m_Layer: 7
+  m_Layer: 4
   m_Name: WaterMist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16000,10 +16001,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   raycastHeight: 5
+  raycastDistance: 6
   groundYOffset: 0.05
   arrowWorldLength: 10
   minRepeatCount: 1
   scrollSpeed: 1
+  minVisibleLength: 0.15
 --- !u!1 &9207378004607223022
 GameObject:
   m_ObjectHideFlags: 0
@@ -16015,7 +16018,7 @@ GameObject:
   - component: {fileID: 2529529203759418286}
   - component: {fileID: 9174992345483750420}
   - component: {fileID: 7467605003615057366}
-  m_Layer: 7
+  m_Layer: 4
   m_Name: WaterJet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19802,7 +19805,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 1
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
