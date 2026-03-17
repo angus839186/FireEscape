@@ -35,7 +35,8 @@ public class PlayerAction : MonoBehaviour
 
     public float nozzleSplashTime;
 
-    public bool holdNozzle;
+    public bool holdNozzle;          // 是否拿著水管
+    public bool holdExtinguisher;    // 是否拿著滅火器
 
 
 
@@ -127,4 +128,21 @@ public class PlayerAction : MonoBehaviour
         nozzle.gameObject.SetActive(toggle);
         holdNozzle = toggle;
     }
+
+    // 這個方法用來切換裝備狀態
+   public void SwitchEquipment(string type)
+   {
+    if (type == "Water")
+    {
+        holdNozzle = true;
+        holdExtinguisher = false;
+        // 這裡可以加入：顯示水管的模型、隱藏滅火器的模型
+    }
+    else if (type == "Extinguisher")
+    {
+        holdNozzle = false;
+        holdExtinguisher = true;
+        // 這裡可以加入：顯示滅火器的模型、隱藏水管的模型
+    }
+   }
 }
