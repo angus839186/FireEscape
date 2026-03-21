@@ -145,4 +145,38 @@ public class PlayerAction : MonoBehaviour
         // 這裡可以加入：顯示滅火器的模型、隱藏水管的模型
     }
    }
+
+   void Update()
+{
+    // 假設按滑鼠右鍵 (1) 來切換裝備
+    if (Input.GetMouseButtonDown(1)) 
+    {
+        SwitchWeapon();
+    }
+}
+
+public void SwitchWeapon()
+{
+    // 如果目前拿著水管，就換成滅火器
+    if (holdNozzle)
+    {
+        holdNozzle = false;
+        holdExtinguisher = true;
+        Debug.Log("已換成：滅火器");
+        
+        // 這裡建議加入隱藏水管模型、顯示滅火器模型的代碼
+        // nozzleModel.SetActive(false);
+        // extinguisherModel.SetActive(true);
+    }
+    // 如果目前拿著滅火器，就換成水管
+    else if (holdExtinguisher)
+    {
+        holdExtinguisher = false;
+        holdNozzle = true;
+        Debug.Log("已換成：消防栓噴嘴");
+        
+        // nozzleModel.SetActive(true);
+        // extinguisherModel.SetActive(false);
+    }
+}
 }
