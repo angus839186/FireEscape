@@ -20,6 +20,7 @@ public class Exit : InteractableItem
         var Player = other.GetComponent<PlayerController>();
         if(Player != null)
         {
+            ShowHint(hint);
             GameManager.Instance.LevelEnd(win);
         }
     }
