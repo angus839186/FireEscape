@@ -19931,7 +19931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
+  dialogue: {fileID: 11400000, guid: dfeb8368cfd77d9499d7639b391239c9, type: 2}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
@@ -54846,7 +54846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
+  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
@@ -118946,7 +118946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
+  dialogue: {fileID: 11400000, guid: dfeb8368cfd77d9499d7639b391239c9, type: 2}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
