@@ -25,6 +25,9 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
     [Header("可撿取道具")]
     public ItemData itemToAdd;
 
+    [Header("轉場過渡秒數")]
+    public float transitionDelayTime;
+
     [Header("互動後事件")]
     public UnityEvent EventAfterInteract;
 
@@ -89,13 +92,12 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
         {
             playerItem.AddItem(itemToAdd);
         }
-        this.gameObject.SetActive(false);
     }
 
     public void CloseObjectHighLight()
     {
         HighLightObject highLightObject = GetComponent<HighLightObject>();
-        if(highLightObject != null)
+        if (highLightObject != null)
         {
             highLightObject.HighLight(false);
         }
@@ -104,6 +106,27 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
     public void CloseInteract()
     {
         GetComponent<Collider>().enabled = false;
+    }
+
+    public void TriggerTransition(PlayerInteraction player)
+    {
+        StartCoroutine(TransitionCoroutine(player));
+    }
+
+    IEnumerator TransitionCoroutine(PlayerInteraction player)
+    {
+        TransitionUI transitionUI = FindFirstObjectByType<TransitionUI>();
+        if(transitionUI != null)
+        {
+            transitionUI.TransitionImage(true);
+        }
+        player.GetComponent<PlayerAction>().ToggleFreeze(true);
+        yield return new WaitForSeconds(transitionDelayTime);
+        if(transitionUI != null)
+        {
+            transitionUI.TransitionImage(false);
+        }
+        player.GetComponent<PlayerAction>().ToggleFreeze(false);
     }
 
     public abstract void InteractSound();

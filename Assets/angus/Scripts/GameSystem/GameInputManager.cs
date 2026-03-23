@@ -18,6 +18,9 @@ public class GameInputManager : MonoBehaviour
     public event Action<bool> useItemInput;
 
     public event Action OnPauseInput;
+
+    public event Action switchHeldItemInput;
+
     private void Awake()
     {
         if (Instance == null)
@@ -54,6 +57,9 @@ public class GameInputManager : MonoBehaviour
             gameInput.Player.UseItem.canceled += ctx => useItemInput?.Invoke(false);
 
             gameInput.Player.Pause.performed += ctx => OnPauseInput?.Invoke();
+
+            gameInput.Player.SwitchHeldItem.performed += ctx => switchHeldItemInput?.Invoke();
+
         }
     }
 
@@ -76,6 +82,8 @@ public class GameInputManager : MonoBehaviour
             gameInput.Player.UseItem.canceled -= ctx => useItemInput?.Invoke(false);
 
             gameInput.Player.Pause.performed -= ctx => OnPauseInput?.Invoke();
+
+            gameInput.Player.SwitchHeldItem.performed -= ctx => switchHeldItemInput?.Invoke();
 
             gameInput.Player.Disable();
         }

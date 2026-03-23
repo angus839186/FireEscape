@@ -14,57 +14,136 @@ public class PlayerAction : MonoBehaviour
     public GameObject Extinguisher;
     public float extinguishingDelayTime;
 
-    [Header("消防斧")]
-    public GameObject fireAxe;
-    public AudioClip fireAxeSfx;
-
-    public Animator fireAxeAnimator;
-    public float fireAxeDelayTime;
-
     [Header("抹布")]
-    public GameObject rag;
-    public bool ragisWet;
-
+    public bool canUseRag;
     public bool usingRag;
     public Animator ragAnimator;
 
-    [Header("消防栓噴嘴")]
-    public GameObject nozzle;
+    [Header("水管")]
     public AudioSource waterSFX;
     public ParticleSystem waterFX;
-
     public float nozzleSplashTime;
 
-    public bool holdNozzle;          // 是否拿著水管
-    public bool holdExtinguisher;    // 是否拿著滅火器
+    [Header("手機")]
+    [SerializeField] private bool canUsePhone;
 
 
+    [Header("Held Item Objects")]
+    [SerializeField] private GameObject phoneObject;
+    [SerializeField] private GameObject ragObject;
+    [SerializeField] private GameObject extinguisherObject;
+    [SerializeField] private GameObject nozzleObject;
 
+    private PlayerItem playerItem;
 
     void Awake()
     {
-        GameInputManager.Instance.useItemInput += useRag;
+        playerItem = GetComponent<PlayerItem>();
+
+        if (GameInputManager.Instance != null)
+        {
+            GameInputManager.Instance.useItemInput += OnUseItemInput;
+            GameInputManager.Instance.switchHeldItemInput += OnSwitchHeldItemInput;
+        }
+
+        if (playerItem != null)
+        {
+            playerItem.OnInventoryChanged += RefreshHeldItemVisual;
+        }
     }
 
     void OnDisable()
     {
-        GameInputManager.Instance.useItemInput -= useRag;
+        if (GameInputManager.Instance != null)
+        {
+            GameInputManager.Instance.useItemInput -= OnUseItemInput;
+            GameInputManager.Instance.switchHeldItemInput -= OnSwitchHeldItemInput;
+        }
+
+        if (playerItem != null)
+        {
+            playerItem.OnInventoryChanged -= RefreshHeldItemVisual;
+        }
     }
 
-    public void Extinguish()
+    void Start()
+    {
+        RefreshHeldItemVisual();
+    }
+
+    private void OnUseItemInput(bool isPressed)
+    {
+        PlayerItem playerItem = GetComponent<PlayerItem>();
+        if (playerItem == null || playerItem.HeldItem == null) return;
+
+        switch (playerItem.HeldItem.actionType)
+        {
+            case ItemActionType.Phone:
+                if (isPressed)
+                {
+                    TryUsePhone();
+                }
+                break;
+
+            case ItemActionType.Rag:
+                TryUseRag(isPressed);
+                break;
+        }
+    }
+    private void OnSwitchHeldItemInput()
+    {
+        PlayerItem playerItem = GetComponent<PlayerItem>();
+        if (playerItem == null) return;
+
+        playerItem.CycleHeldItem();
+
+        if (playerItem.HeldItem != null)
+        {
+            Debug.Log("Current Held Item: " + playerItem.HeldItem.ItemName);
+        }
+    }
+
+    private void TryUsePhone()
+    {
+        if (!canUsePhone) return;
+
+        Debug.Log("Use phone");
+    }
+
+    private void TryUseRag(bool isPressed)
+    {
+        if (!canUseRag)
+        {
+            usingRag = false;
+            return;
+        }
+
+        usingRag = isPressed;
+
+        if (ragAnimator == null) return;
+
+        float startTime = usingRag ? 0f : 1f;
+        ragAnimator.SetFloat("holdingRag", usingRag ? 1f : -1f);
+        ragAnimator.Play("mugAnime", 0, startTime);
+    }
+
+    public void TryUseExtinguish()
     {
         StartCoroutine(ExtinguishFireRoutine());
+    }
+
+    public void TryUseNozzle()
+    {
+        StartCoroutine(HydrantNozzleCoroutine());
     }
     IEnumerator ExtinguishFireRoutine()
     {
         ToggleFreeze(true);
-        Extinguisher.SetActive(true);
         powderFX.Play();
         powderSFX.Play();
         yield return new WaitForSeconds(extinguishingDelayTime);
         powderFX.Stop();
         powderSFX.Stop();
-        Extinguisher.SetActive(false);
         ToggleFreeze(false);
     }
     public void ToggleFreeze(bool toggle)
@@ -79,38 +158,21 @@ public class PlayerAction : MonoBehaviour
         player.inTheCar = toggle;
     }
 
-    public void useRag(bool toggle)
-    {
-        if (ragisWet == false) return;
-        usingRag = toggle;
-        float startTime = usingRag ? 0f : 1f;
-        ragAnimator.SetFloat("holdingRag", usingRag ? 1f : -1f);
-        ragAnimator.Play("mugAnime", 0, startTime);
-    }
+    // public void DestroyBarricade()
+    // {
+    //     StartCoroutine(DestroyBarricadeCoroutine());
+    // }
 
-    public void DestroyBarricade()
-    {
-        StartCoroutine(DestroyBarricadeCoroutine());
-    }
-
-    IEnumerator DestroyBarricadeCoroutine()
-    {
-        ToggleFreeze(true);
-        fireAxe.SetActive(true);
-        fireAxeAnimator.SetTrigger("use");
-        AudioManager.Instance.PlaySound(fireAxeSfx);
-        yield return new WaitForSeconds(fireAxeDelayTime);
-        fireAxe.SetActive(false);
-        ToggleFreeze(false);
-    }
-
-    public void HydrantNozzle()
-    {
-        if (holdNozzle)
-        {
-            StartCoroutine(HydrantNozzleCoroutine());
-        }
-    }
+    // IEnumerator DestroyBarricadeCoroutine()
+    // {
+    //     ToggleFreeze(true);
+    //     fireAxe.SetActive(true);
+    //     fireAxeAnimator.SetTrigger("use");
+    //     AudioManager.Instance.PlaySound(fireAxeSfx);
+    //     yield return new WaitForSeconds(fireAxeDelayTime);
+    //     fireAxe.SetActive(false);
+    //     ToggleFreeze(false);
+    // }
 
     IEnumerator HydrantNozzleCoroutine()
     {
@@ -123,60 +185,36 @@ public class PlayerAction : MonoBehaviour
         ToggleFreeze(false);
     }
 
-    public void ToggleNozzle(bool toggle)
+    public void RefreshHeldItemVisual()
     {
-        nozzle.gameObject.SetActive(toggle);
-        holdNozzle = toggle;
+        PlayerItem playerItem = GetComponent<PlayerItem>();
+        ItemData heldItem = playerItem != null ? playerItem.HeldItem : null;
+
+        if (phoneObject != null) phoneObject.SetActive(false);
+        if (ragObject != null) ragObject.SetActive(false);
+        if (extinguisherObject != null) extinguisherObject.SetActive(false);
+        if (nozzleObject != null) nozzleObject.SetActive(false);
+
+        if (heldItem == null) return;
+
+        switch (heldItem.actionType)
+        {
+            case ItemActionType.Phone:
+                if (phoneObject != null) phoneObject.SetActive(true);
+                break;
+
+            case ItemActionType.Rag:
+                if (ragObject != null) ragObject.SetActive(true);
+                break;
+
+            case ItemActionType.Extinguisher:
+                if (extinguisherObject != null) extinguisherObject.SetActive(true);
+                break;
+
+            case ItemActionType.Nozzle:
+                if (nozzleObject != null) nozzleObject.SetActive(true);
+                break;
+        }
     }
 
-    // 這個方法用來切換裝備狀態
-   public void SwitchEquipment(string type)
-   {
-    if (type == "Water")
-    {
-        holdNozzle = true;
-        holdExtinguisher = false;
-        // 這裡可以加入：顯示水管的模型、隱藏滅火器的模型
-    }
-    else if (type == "Extinguisher")
-    {
-        holdNozzle = false;
-        holdExtinguisher = true;
-        // 這裡可以加入：顯示滅火器的模型、隱藏水管的模型
-    }
-   }
-
-   void Update()
-{
-    // 假設按滑鼠右鍵 (1) 來切換裝備
-    if (Input.GetMouseButtonDown(1)) 
-    {
-        SwitchWeapon();
-    }
-}
-
-public void SwitchWeapon()
-{
-    // 如果目前拿著水管，就換成滅火器
-    if (holdNozzle)
-    {
-        holdNozzle = false;
-        holdExtinguisher = true;
-        Debug.Log("已換成：滅火器");
-        
-        // 這裡建議加入隱藏水管模型、顯示滅火器模型的代碼
-        // nozzleModel.SetActive(false);
-        // extinguisherModel.SetActive(true);
-    }
-    // 如果目前拿著滅火器，就換成水管
-    else if (holdExtinguisher)
-    {
-        holdExtinguisher = false;
-        holdNozzle = true;
-        Debug.Log("已換成：消防栓噴嘴");
-        
-        // nozzleModel.SetActive(true);
-        // extinguisherModel.SetActive(false);
-    }
-}
 }

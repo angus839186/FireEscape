@@ -9,6 +9,7 @@ public class Extinguisher : InteractableItem
         base.Interact(player);
         AddItem(player);
         CloseObjectHighLight();
+        EventAfterInteract.Invoke();
     }
 
     public override void InteractSound()

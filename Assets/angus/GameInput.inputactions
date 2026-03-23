@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "SwitchHeldItem",
+                    "type": "Button",
+                    "id": "0056223f-1d1b-409c-afbd-e9a014088f10",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "1485876d-00e9-48d5-b0fb-3a6e7a7e42bf",
@@ -177,6 +186,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26d104a7-6a37-41cc-b93d-f242b7f143c3",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchHeldItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

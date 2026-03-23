@@ -8,6 +8,7 @@ public class Rag : InteractableItem
     {
         base.Interact(player);
         AddItem(player);
+        EventAfterInteract.Invoke();
     }
 
     public override void InteractSound()

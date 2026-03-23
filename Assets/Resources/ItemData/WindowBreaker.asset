@@ -15,3 +15,5 @@ MonoBehaviour:
   ItemName: "\u8ECA\u7A97\u64CA\u7834\u5668"
   ItemDescription: 
   ItemSprite: {fileID: 0}
+  useMode: 2
+  actionType: 5

@@ -7,24 +7,7 @@ public class TransitionUI : MonoBehaviour
     public float transitionSpeed = 2f;
     private Coroutine _running;
 
-    void Awake()
-    {
-        TransitionTrigger transitionTrigger = FindFirstObjectByType<TransitionTrigger>();
-        if(transitionTrigger!= null)
-        {
-            transitionTrigger.OnTransition += TransitionImage;
-        }
-    }
-
-    void OnDestroy()
-    {
-        TransitionTrigger transitionTrigger = FindFirstObjectByType<TransitionTrigger>();
-        if(transitionTrigger!= null)
-        {
-            transitionTrigger.OnTransition -= TransitionImage;
-        }
-    }
-
+    
     public void TransitionImage(bool toggle)
     {
         if (_running != null) StopCoroutine(_running);
