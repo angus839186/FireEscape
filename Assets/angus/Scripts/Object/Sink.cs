@@ -11,8 +11,7 @@ public class Sink : InteractableItem
         {
             if (CheckRequirements(player, out var inv))
             {
-                player.GetComponent<PlayerAction>().ragisWet = true;
-                player.GetComponent<PlayerAction>().rag.SetActive(true);
+                player.GetComponent<PlayerAction>().canUseRag = true;
                 ShowPlayerTalk(player, dialogue);
                 InteractSound();
                 CloseObjectHighLight();

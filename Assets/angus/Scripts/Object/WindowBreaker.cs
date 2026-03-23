@@ -18,6 +18,7 @@ public class WindowBreaker : InteractableItem
         {
             AddItem(player);
             ShowPlayerTalk(player, dialogue);
+            EventAfterInteract.Invoke();
         }
     }
 }

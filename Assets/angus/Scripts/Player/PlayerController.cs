@@ -180,4 +180,15 @@ public class PlayerController : MonoBehaviour
     {
         return h * eyeHeightRatio;
     }
+    public void TeleportTo(Transform targetPoint)
+    {
+        if (targetPoint == null) return;
+
+        character.enabled = false;
+        transform.position = targetPoint.position;
+        transform.rotation = targetPoint.rotation;
+        verticalVelocity = 0f;
+        move = Vector3.zero;
+        character.enabled = true;
+    }
 }

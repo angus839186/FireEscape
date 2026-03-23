@@ -19931,10 +19931,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: dfeb8368cfd77d9499d7639b391239c9, type: 2}
+  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -34828,6 +34829,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 1905090088}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -54751,6 +54753,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -54846,10 +54849,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 86542603883d0a9479e4a2dfd2df0273, type: 2}
+  dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -89059,6 +89063,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -98884,21 +98889,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
-  canInteract: 1
+  canInteract: 0
   TriggerOnce: 0
   FireFX: {fileID: 7068869}
   FireSound: {fileID: 7068867}
-  HydrantHint: {fileID: 0}
-  normalFire: 0
+  fireType: 2
+  explodeHint: {fileID: 0}
+  cannotPutOutHint: {fileID: 0}
 --- !u!65 &520027812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118577,6 +118584,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -118946,10 +118954,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: dfeb8368cfd77d9499d7639b391239c9, type: 2}
+  dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -119016,6 +119025,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 919132147585562755}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -134002,6 +134012,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -134074,21 +134085,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
-  canInteract: 1
+  canInteract: 0
   TriggerOnce: 0
   FireFX: {fileID: 1729131693}
   FireSound: {fileID: 1729131691}
-  HydrantHint: {fileID: 0}
-  normalFire: 0
+  fireType: 2
+  explodeHint: {fileID: 0}
+  cannotPutOutHint: {fileID: 0}
 --- !u!65 &765068500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134433,6 +134446,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -139464,21 +139478,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
-  canInteract: 1
+  canInteract: 0
   TriggerOnce: 0
   FireFX: {fileID: 1650247769}
   FireSound: {fileID: 1650247767}
-  HydrantHint: {fileID: 0}
-  normalFire: 0
+  fireType: 2
+  explodeHint: {fileID: 0}
+  cannotPutOutHint: {fileID: 0}
 --- !u!65 &831514913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -144644,21 +144660,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
-  canInteract: 1
+  canInteract: 0
   TriggerOnce: 0
   FireFX: {fileID: 1718487005}
   FireSound: {fileID: 1718487003}
-  HydrantHint: {fileID: 0}
-  normalFire: 0
+  fireType: 2
+  explodeHint: {fileID: 0}
+  cannotPutOutHint: {fileID: 0}
 --- !u!65 &860978690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184106,21 +184124,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
-  canInteract: 1
+  canInteract: 0
   TriggerOnce: 0
   FireFX: {fileID: 438298756}
   FireSound: {fileID: 438298754}
-  HydrantHint: {fileID: 0}
-  normalFire: 0
+  fireType: 2
+  explodeHint: {fileID: 0}
+  cannotPutOutHint: {fileID: 0}
 --- !u!65 &1010417150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -204295,10 +204315,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
   hint: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 83dc655c2f7dd914d8c3944e0da5db29, type: 2}
+  dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -214339,6 +214360,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -244037,6 +244059,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -244044,8 +244067,9 @@ MonoBehaviour:
   TriggerOnce: 0
   FireFX: {fileID: 1233754634}
   FireSound: {fileID: 1233754632}
-  HydrantHint: {fileID: 0}
-  normalFire: 0
+  fireType: 2
+  explodeHint: {fileID: 0}
+  cannotPutOutHint: {fileID: 0}
 --- !u!65 &1361575339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -289343,6 +289367,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -289401,6 +289426,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -313628,21 +313654,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a63585c3e25e49b18b8ba5b2477bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 98b12a2ce1d839c479375fbe95c8b4d9, type: 2}
+  requiredItem: {fileID: 0}
   hint: {fileID: 0}
   dialogue: {fileID: 0}
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
-  canInteract: 1
+  canInteract: 0
   TriggerOnce: 0
   FireFX: {fileID: 1466012044}
   FireSound: {fileID: 1466012042}
-  HydrantHint: {fileID: 0}
-  normalFire: 0
+  fireType: 2
+  explodeHint: {fileID: 0}
+  cannotPutOutHint: {fileID: 0}
 --- !u!65 &1705254931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -343909,6 +343937,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -344245,6 +344274,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -349300,9 +349330,22 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 1167117801}
   itemToAdd: {fileID: 11400000, guid: 585f73afac97c9e4189470e14a8baebb, type: 2}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1905090088}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canInteract: 1
   TriggerOnce: 1
 --- !u!1 &1917756217
@@ -359773,6 +359816,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -413458,6 +413502,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 0}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -414790,6 +414835,7 @@ MonoBehaviour:
   airCollider: {fileID: 0}
   NextHighLightObject: {fileID: 1905090088}
   itemToAdd: {fileID: 0}
+  transitionDelayTime: 0
   EventAfterInteract:
     m_PersistentCalls:
       m_Calls: []

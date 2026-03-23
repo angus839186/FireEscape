@@ -15,3 +15,5 @@ MonoBehaviour:
   ItemName: "\u6D88\u9632\u65A7"
   ItemDescription: 
   ItemSprite: {fileID: 21300000, guid: e11944a1daa225b448e3613b785da606, type: 3}
+  useMode: 2
+  actionType: 0
