@@ -14,8 +14,15 @@ public class Fire : InteractableItem
     public ParticleSystem FireFX;
     public AudioSource FireSound;
     public FireType fireType;
-    public Hint explodeHint;
-    public Hint cannotPutOutHint;
+
+    public DialogueData wrongDialogue;
+
+    public DialogueData unputDialogue;
+
+    [Header("爆炸")]
+    public ParticleSystem _explosion;
+
+    public AudioSource audioSource;
 
     public override void Interact(PlayerInteraction player)
     {
@@ -55,11 +62,12 @@ public class Fire : InteractableItem
                 break;
 
             case FireType.Normal:
-                ShowHint(explodeHint);
+                Explode();
+                ShowPlayerTalk(player, wrongDialogue);
                 break;
 
             case FireType.UnPut:
-                ShowHint(cannotPutOutHint);
+                ShowPlayerTalk(player, unputDialogue);
                 break;
         }
     }
@@ -74,11 +82,12 @@ public class Fire : InteractableItem
                 break;
 
             case FireType.Metal:
-                ShowHint(explodeHint);
+                Explode();
+                ShowPlayerTalk(player, wrongDialogue);
                 break;
 
             case FireType.UnPut:
-                ShowHint(cannotPutOutHint);
+                ShowPlayerTalk(player, unputDialogue);
                 break;
         }
     }
@@ -104,6 +113,12 @@ public class Fire : InteractableItem
         if (FireSound != null) FireSound.Stop();
         var col = GetComponent<BoxCollider>();
         if (col != null) col.enabled = false;
+    }
+
+    public void Explode()
+    {
+        if (_explosion != null) _explosion.Play();
+        if (audioSource != null) audioSource.Play();
     }
 }
 

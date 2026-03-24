@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public abstract class InteractableItem : MonoBehaviour, IInteractable
 {
 
-    [Header("互動設定")]
+    [Header("互動條件")]
     [SerializeField] private ItemData requiredItem;
 
     [Header("預設提示")]
@@ -16,7 +16,7 @@ public abstract class InteractableItem : MonoBehaviour, IInteractable
     [Header("預設自白")]
     public DialogueData dialogue;
 
-    [Header("空氣牆")]
+    [Header("預設空氣牆")]
     public GameObject airCollider;
 
     [Header("下一個高亮物件")]

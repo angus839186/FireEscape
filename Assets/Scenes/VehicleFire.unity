@@ -41061,8 +41061,10 @@ MonoBehaviour:
   FireFX: {fileID: 1435242267}
   FireSound: {fileID: 1435242264}
   fireType: 0
-  explodeHint: {fileID: 0}
-  cannotPutOutHint: {fileID: 0}
+  wrongDialogue: {fileID: 0}
+  unputDialogue: {fileID: 0}
+  _explosion: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!65 &226511428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51065,8 +51067,10 @@ MonoBehaviour:
   FireFX: {fileID: 1894233907}
   FireSound: {fileID: 1894233904}
   fireType: 0
-  explodeHint: {fileID: 0}
-  cannotPutOutHint: {fileID: 0}
+  wrongDialogue: {fileID: 0}
+  unputDialogue: {fileID: 0}
+  _explosion: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!65 &341043386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -92418,8 +92422,10 @@ MonoBehaviour:
   FireFX: {fileID: 1176899609}
   FireSound: {fileID: 1176899606}
   fireType: 0
-  explodeHint: {fileID: 0}
-  cannotPutOutHint: {fileID: 0}
+  wrongDialogue: {fileID: 0}
+  unputDialogue: {fileID: 0}
+  _explosion: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!65 &627875618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -293661,7 +293667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1708699220147629
 GameObject:
   m_ObjectHideFlags: 0

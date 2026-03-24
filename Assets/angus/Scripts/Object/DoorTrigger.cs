@@ -20,7 +20,7 @@ public class DoorTrigger : InteractableItem
 
     private Coroutine rotateCR;
 
-    public Hint DoorHandleHint;
+    public DialogueData DoorHandleFirstDialogue;
 
     void Awake()
     {
@@ -43,7 +43,8 @@ public class DoorTrigger : InteractableItem
     {
         if (!isInteractionUnlocked)
         {
-            HintUI.Instance.ShowHint(DoorHandleHint);
+            ShowPlayerTalk(player, DoorHandleFirstDialogue);
+            return;
         }
         else
         {

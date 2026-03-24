@@ -25,6 +25,7 @@ public class HintTrigger : InteractableItem
             {
                 ShowHint(hint);
                 NextHighLight();
+                EventAfterInteract.Invoke();
                 if (TriggerOnce)
                 {
                     GetComponent<BoxCollider>().enabled = false;

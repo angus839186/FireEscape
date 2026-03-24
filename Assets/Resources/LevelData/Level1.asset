@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f70d20b3e5c0147b450f39fcf68515, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  sceneName: apartment
-  video: {fileID: 32900000, guid: bb8b53fcef1fbca4da73ceaeeb07579d, type: 3}
+  sceneName: Apartment
   defaultSpawnPos: {x: 0, y: 0, z: 0}
   defaultSpawnEuler: {x: 0, y: 0, z: 0}
