@@ -1876,6 +1876,7 @@ MonoBehaviour:
   gameMenu: {fileID: 224222151}
   levelSelectMenu: {fileID: 823851166}
   helpPanel: {fileID: 524830657}
+  Background: {fileID: 2008523680}
 --- !u!1 &1146242781
 GameObject:
   m_ObjectHideFlags: 0

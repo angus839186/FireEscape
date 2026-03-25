@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public static bool ShouldShowLevelSelect = false;
+
     public SceneLoader sceneLoader;
 
     LevelData level;
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
     public void Back()
     {
         Time.timeScale = 1f;
+        ShouldShowLevelSelect = true; // 標記：下次進入選單時要開關卡選擇
         sceneLoader.BackToMenu();
     }
 }
