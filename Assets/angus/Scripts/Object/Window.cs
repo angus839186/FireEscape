@@ -17,21 +17,26 @@ public class Window : InteractableItem
 
     public override void Interact(PlayerInteraction player)
     {
+        if (!player.TryGetComponent(out PlayerItem playerItem)) return;
+        if (!player.TryGetComponent(out PlayerAction playerAction)) return;
+        ItemData heldItem = playerItem.HeldItem;
         if (isTransitioning) return;
         if (windowbreak)
         {
             StartCoroutine(WindowTransitionCoroutine(player));
-            Debug.Log("get off the car");
         }
         else
         {
-            if (CheckRequirements(player, out var inv))
+            switch (heldItem.actionType)
             {
-                windowbreak = true;
-            }
-            else
-            {
-                ShowPlayerTalk(player, dialogue);
+                case ItemActionType.WindowBreaker:
+                    playerAction.TryUseWindowBreaker();
+                    windowbreak = true;
+                    break;
+
+                default:
+                    ShowPlayerTalk(player, dialogue);
+                    break;
             }
         }
     }

@@ -14,11 +14,9 @@ public class WindowBreaker : InteractableItem
 
     public override void Interact(PlayerInteraction player)
     {
-        if(canInteract)
-        {
-            AddItem(player);
-            ShowPlayerTalk(player, dialogue);
-            EventAfterInteract.Invoke();
-        }
+        base.Interact(player);
+        AddItem(player);
+        CloseObjectHighLight();
+        EventAfterInteract.Invoke();
     }
 }

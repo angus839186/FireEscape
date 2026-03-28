@@ -15,5 +15,8 @@ public class CellPhone : InteractableItem
     public override void Interact(PlayerInteraction player)
     {
         base.Interact(player);
+        AddItem(player);
+        CloseObjectHighLight();
+        EventAfterInteract.Invoke();
     }
 }

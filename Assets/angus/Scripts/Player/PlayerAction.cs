@@ -25,7 +25,15 @@ public class PlayerAction : MonoBehaviour
     public float nozzleSplashTime;
 
     [Header("手機")]
-    [SerializeField] private bool canUsePhone;
+    public DialogueData phoneCallDialogue;
+    public AudioSource phoneCallSFX;
+    public bool usingPhone;
+    public bool canUsePhone;
+
+    [Header("車窗擊破器")]
+    [SerializeField] private AudioSource windowBreakerSFX;
+
+    [SerializeField] private Animator windowBreakerAnimator;
 
 
     [Header("Held Item Objects")]
@@ -33,6 +41,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] private GameObject ragObject;
     [SerializeField] private GameObject extinguisherObject;
     [SerializeField] private GameObject nozzleObject;
+    [SerializeField] private GameObject windowBreakerObject;
 
     private PlayerItem playerItem;
 
@@ -106,8 +115,10 @@ public class PlayerAction : MonoBehaviour
     private void TryUsePhone()
     {
         if (!canUsePhone) return;
+        if(usingPhone) return;
 
         Debug.Log("Use phone");
+        StartCoroutine(PhoneCallCoroutine());
     }
 
     private void TryUseRag(bool isPressed)
@@ -158,21 +169,20 @@ public class PlayerAction : MonoBehaviour
         player.inTheCar = toggle;
     }
 
-    // public void DestroyBarricade()
-    // {
-    //     StartCoroutine(DestroyBarricadeCoroutine());
-    // }
+    public void TryUseWindowBreaker()
+    {
+        StartCoroutine(WindowBreakerRoutine());
+    }
 
-    // IEnumerator DestroyBarricadeCoroutine()
-    // {
-    //     ToggleFreeze(true);
-    //     fireAxe.SetActive(true);
-    //     fireAxeAnimator.SetTrigger("use");
-    //     AudioManager.Instance.PlaySound(fireAxeSfx);
-    //     yield return new WaitForSeconds(fireAxeDelayTime);
-    //     fireAxe.SetActive(false);
-    //     ToggleFreeze(false);
-    // }
+    IEnumerator WindowBreakerRoutine()
+    {
+        ToggleFreeze(true);
+        windowBreakerAnimator.SetTrigger("use");
+        windowBreakerSFX.Play();
+        yield return new WaitForSeconds(0.5f);
+        ToggleFreeze(false);
+        yield return null;
+    }
 
     IEnumerator HydrantNozzleCoroutine()
     {
@@ -194,6 +204,7 @@ public class PlayerAction : MonoBehaviour
         if (ragObject != null) ragObject.SetActive(false);
         if (extinguisherObject != null) extinguisherObject.SetActive(false);
         if (nozzleObject != null) nozzleObject.SetActive(false);
+        if (windowBreakerObject != null) windowBreakerObject.SetActive(false);
 
         if (heldItem == null) return;
 
@@ -214,7 +225,26 @@ public class PlayerAction : MonoBehaviour
             case ItemActionType.Nozzle:
                 if (nozzleObject != null) nozzleObject.SetActive(true);
                 break;
+            case ItemActionType.WindowBreaker:
+                if (windowBreakerObject != null) windowBreakerObject.SetActive(true);
+                break;
         }
     }
+
+    IEnumerator PhoneCallCoroutine()
+    {
+        usingPhone = true;
+        ToggleFreeze(true);
+        phoneCallSFX.Play();
+        yield return new WaitForSeconds(1.5f);
+        phoneCallSFX.Stop();
+        PlayerTalk talk = GetComponent<PlayerTalk>();
+        talk.Talk(phoneCallDialogue);
+        yield return new WaitForSeconds(3f);
+
+        GameManager.Instance.LevelEnd(true);
+        yield return null;
+    }
+    
 
 }
